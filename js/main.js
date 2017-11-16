@@ -13,8 +13,12 @@ var gImgObjs = [
     { id: 9, name: 'X-Everywhere', url: 'img/memes/X-Everywhere.jpg', keywords: ['cartoon', 'buzz', 'woody', 'toy story'] },
 ]
 
+var gKeywords = {};
+
 function init() {
-    renderImages();
+    getKeywordsMap()    
+    renderImages(gImgObjs);
+
 }
 
 //This function takes the name of the img object and iserts it to the keywords
@@ -32,28 +36,13 @@ expandKeywords();
 
 
 
-function filterBySearch() {
-    var userKey = document.querySelector('.search').value
-    var filterdImgs;
-    gImgObjs.forEach(function (img) {
-        filterdImgs = img.keywords.filter(function (key) {
-            console.log(key, userKey)
-            return key === userKey;
-        })
-    });
-    console.log(filterdImgs)
-}
 
-
-
-
-
-//This function renders the img objects to the DOM
-function renderImages() {
+//This function renders the img objects and the popular keywords to the DOM
+function renderImages(ImgObjs) {
     expandKeywords();
     var elGallery = document.querySelector('.gallery')
     var strHtml = '';
-    gImgObjs.forEach(function stringToHtml(imgObj) {
+    ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
         <li>
         <img src="${imgObj.url}" alt="${imgObj.name}">
@@ -61,4 +50,28 @@ function renderImages() {
         // <a href="lmgtfy/${imgObj.name}">About this meme</a>
     </li>`})
     elGallery.innerHTML = strHtml;
+    var elPopular = document.querySelector('.popular-keywords')
+    var popularStrHmnl = ''
+    for (var key in gKeywords) {
+        popularStrHmnl += `<h6 onclick="filterBySearch('${key}')" style="font-size: ${gKeywords[key].count}em">${key}<h6/>`
+        elPopular.innerHTML = popularStrHmnl;
+    }
 }
+
+function getKeywordsMap() {
+    gImgObjs.forEach(function (imgObj) {
+        var imgKeys = imgObj.keywords
+        imgKeys.forEach(function (key) {
+            if (!gKeywords[key]) gKeywords[key] = { count: 0, imgObjs: [] }
+            gKeywords[key].count++
+            gKeywords[key].imgObjs.push(imgObj)
+        })
+    })
+}
+
+function filterBySearch(userKey) {
+    if (!userKey) var userKey = document.querySelector('.search').value
+    var filterdImgs = gKeywords[userKey].imgObjs
+    renderImages(filterdImgs)
+}
+

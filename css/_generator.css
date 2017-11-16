@@ -30,3 +30,8 @@
     text-decoration: none;
     margin: 5px;
 }
+
+.popular-keywords h6 {
+    display: inline-block;
+    margin: 10px;
+}

@@ -1,3 +1,4 @@
 :root {
     --inner-container-width: 760px;
+    --mobile-inner-container-width: 90vw;
 }
