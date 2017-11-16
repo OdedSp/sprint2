@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\main.css">
-    <title>Document</title>
+    <title>Meme Generator</title>
 </head>
 
-<body>
+<body onload="init()">
     <div class="container">
         <nav>
             <ul>
@@ -28,7 +28,8 @@
         </div>
         search meme: <input class="search" placeholder="keyword"/> <button onclick="filterBySearch()">search</button>
         <div class="generator">
-
+            <ul class="gallery">
+            </ul>
         </div>
         <div class="about-us">
             <div class="about-us-item">
