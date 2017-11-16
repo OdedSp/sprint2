@@ -12,7 +12,10 @@ nav {
     align-items: center;
     width: 100vw;
     height: 65px;
-    background: #323232;
+    background-color: #323232;
+    /* background-image: url("../img/pointy-thingy.png"); */
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 0px;
 }
 
@@ -46,4 +49,10 @@ margin: auto;
     width: 100vw;
     height: 11px;
     border-bottom: 1px solid #e4e9eb;
+}
+
+.sub-nav img {
+    top: 65px;
+    position: absolute;
+    margin: auto;
 }
