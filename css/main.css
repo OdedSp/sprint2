@@ -1,2 +1,6 @@
+@import '../lib/normalize.css';
 
-@import '_about-us.css';
+@import '_nav.css';
+@import '_fonts.css';
+
+@import '_about.css';
