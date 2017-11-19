@@ -59,6 +59,8 @@
                 <div class="search-box">
                     <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
                     <button onclick="filterBySearch()">search</button>
+                    <button onclick="displayKeyMap()">Or search by map</button>
+                    <div class="popular-keywords"></div>
                 </div>
                 <div class="imageAdd">
                     <input class="usersImgUrl" placeholder="enter your image url" />
@@ -68,7 +70,6 @@
                 <div class="gallery-map">
                     <ul class="gallery">
                     </ul>
-                    <div class="popular-keywords"></div>
                 </div>
             </div>
             <div class="step-two">
@@ -76,7 +77,7 @@
                 <div class="meme">
                     <div class="user-input" onclick="renderCanvas()">
                         <div class="inputs-container"></div>
-                        <input class="input-1" oninput="updateTxt(1)"/>
+                        <input class="input-1" oninput="updateTxt(1)" />
                         <div class="align-text">
                             <button onclick="alignText('start')">left</button>
                             <button onclick="alignText('center')">center</button>
@@ -108,7 +109,7 @@
                 <div class="about-us-img">
                     <img src="img/devs/shahar.png" />
                 </div>
-                <div>
+                <div class="about-us-words">
                     <h2>Shahar Zilberman</h2>
                     <h4>Samurai</h4>
                     <p>Shahar is 21 years old and is an activist vegan who likes to enjoy life
@@ -127,7 +128,7 @@
                 <div class="about-us-img">
                     <img src="img/devs/oded.png" />
                 </div>
-                <div>
+                <div class="about-us-words">
                     <h2>Oded Spitzer</h2>
                     <h4>Ninja</h4>
                     <p>Oded is 27 years old and likes to Netflix & chill and hang out with his friends
@@ -147,29 +148,35 @@
             <div class="contact-container">
                 <h2>Get In Touch</h2>
                 <h4>In order to get in touch use the contact form below:</h4>
-                <input placeholder="Name (Required)" />
-                <input placeholder="Email (Required)" />
-                <input placeholder="Subject" />
-                <textarea>Write your message here...</textarea>
-                <div>
-                    <p>Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin
-                        sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
+                <div class="message-details">
+                    <div class="message">
+                        <input placeholder="Name (Required)" />
+                        <input placeholder="Email (Required)" />
+                        <input placeholder="Subject" />
+                        <textarea>Write your message here...</textarea>
+                    </div>
+                    <div class="beside-message">
+                        <div>
+                            <p>We would love to hear from you.</p>
+                        </div>
+                        <div class="images-details">
+                            <div class="contact-details">
+                                <p class="detail address">HaBonim 4, Ramat Gan</p>
+                                <p class="detail phone">(079) 555 1155</p>
+                                <p class="detail mail">admin@misterbit.co.il</p>
+                            </div>
+                            <!-- <div class="contact-imgs">
+                                <img src="img\location.png" />
+                                <img src="img\phone.png" />
+                                <img src="img\mail.png" />
+                            </div> -->
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <img src="img\location.png" />
-                    <div>Elm St. 14/05 Lost City</div>
-                </div>
-                <div>
-                    <img src="img\phone.png" />
-                    <div>+ 3528 331 86 35 </div>
-                </div>
-                <div>
-                    <img src="img\mail.png" />
-                    <div>info@hexalcorp.com</div>
-                </div>
-
             </div>
+
         </div>
+    </div>
 
     </div>
     <div class="footer">

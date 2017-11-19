@@ -18,6 +18,10 @@
     margin: 30px 0px;
 }
 
+.about-us-words {
+    margin-left: 20px;
+}
+
 .about-us img {
     max-width: 100%;
 }
@@ -26,16 +30,21 @@
     color: white;
     margin: 0px;
     font-family: MavenPro;
+    font-size: 30px;
 }
 
 .about-us p {
     color: white;
     margin: 0px;
+    font-family: Lato;
+    font-size: 12px;
 }
 
 .about-us h4 {
     color: #20816d;
     margin: 0px;
+    font-family: MavenPro;
+    font-size: 18px;
 }
 
 .about-us-social {

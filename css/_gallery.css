@@ -50,3 +50,14 @@
 .popular-keywords h6 {
     display: inline-block;
 }
+
+.imageAdd {
+    align-self: center;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}
