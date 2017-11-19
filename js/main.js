@@ -195,7 +195,8 @@ function addInput() {
     input.setAttribute('class', 'input-' + gCanvasInfo.texts.length + '');
     input.setAttribute('oninput', 'updateTxt('+ gCanvasInfo.texts.length + ')');
     var div = document.createElement('div');
-    div.setAttribute('onclick', 'dragElement('+gCanvasInfo.texts.length+')')
+    div.setAttribute('onmousedown', 'dragElement('+gCanvasInfo.texts.length+')')
+    div.setAttribute('onTap', 'dragElement('+gCanvasInfo.texts.length+')')
     div.setAttribute('class', 'div-' + gCanvasInfo.texts.length + '')
     div.appendChild(input)
     var inputsContainer = document.querySelector('.inputs-container').appendChild(div);
