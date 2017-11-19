@@ -2,12 +2,12 @@
 
 @import '_nav.css';
 @import '_fonts.css';
+@import '_gallery.css';
 @import '_generator.css';
 @import '_about.css';
 
 @import '_contact.css';
 @import '_root.css';
-@import '_gallery.css';
 @import '_steps-nav.css';
 @import '_layout.css';
 @import '_base.css';

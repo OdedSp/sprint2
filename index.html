@@ -31,7 +31,7 @@
         </div>
     </nav>
     <div class="container">
-        <div class="steps-container">
+        <!-- <div class="steps-container">
             <h1>Create a Meme</h1>
             <div class="steps-nav">
                 <div onclick="changeStep('step-one')">
@@ -53,7 +53,7 @@
                     <p>Seve and share!</p>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="generator">
             <div class="step-one show">
                 <div class="search-box">
@@ -65,39 +65,39 @@
                     <input class="usersImgName" placeholder="enter your meme name" />
                     <button onclick="addUserImg()">submit</button>
                 </div>
-                <ul class="gallery">
-                </ul>
-                <div class="popular-keywords"></div>
+                <div class="gallery-map">
+                    <ul class="gallery">
+                    </ul>
+                    <div class="popular-keywords"></div>
+                </div>
             </div>
             <div class="step-two">
-
-                <div class="drag-div">
-                    <!-- <input class="drag-input" oninput="renderCanvas()" /> -->
-                </div>
-
-                <div class="user-input" onclick="renderCanvas()">
-                    <div class="inputs-container"></div>
-                    <input class="input-1" oninput="updateTxt(1)" />
-                    <div class="align-text">
-                        <button onclick="alignText('end')">right</button>
-                        <button onclick="alignText('center')">center</button>
-                        <button onclick="alignText('start')">left</button>
+                <button onclick="backToGallery()">Back to Image gallery</button>
+                <div class="meme">
+                    <div class="user-input" onclick="renderCanvas()">
+                        <div class="inputs-container"></div>
+                        <input class="input-1" oninput="updateTxt(1)"/>
+                        <div class="align-text">
+                            <button onclick="alignText('start')">left</button>
+                            <button onclick="alignText('center')">center</button>
+                            <button onclick="alignText('end')">right</button>
+                        </div>
+                        <div class="font-size">
+                            <button onclick="changeFontSize('+')">+</button>
+                            <button onclick="changeFontSize('-')">-</button>
+                        </div>
+                        <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
+                        <button onclick="toggleShadow()">shadow</button>
+                        <select class="font-family" onchange="changeFont()">
+                            <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
+                            <option value="Arial">Ariel</option>
+                            <option value="Lato">Lato</option>
+                        </select>
+                        <button onclick="deleteText()">🗑</button>
+                        <button class="add-text" onclick="addInput()"> add</button>
                     </div>
-                    <div class="font-size">
-                        <button onclick="changeFontSize('+')">+</button>
-                        <button onclick="changeFontSize('-')">-</button>
-                    </div>
-                    <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
-                    <button onclick="toggleShadow()">shadow</button>
-                    <select class="font-family" onchange="changeFont()">
-                        <option value="Arial">Ariel</option>
-                        <option value="Lato">Lato</option>
-                    </select>
-                    <button onclick="deleteText()">🗑</button>
-                    <button class="add-text" onclick="addInput()"> add</button>
+                    <canvas></canvas>
                 </div>
-                <canvas>        
-                </canvas>
                 <button>
                     <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
                 </button>
@@ -106,16 +106,12 @@
         <div class="about-us">
             <div class="about-us-item">
                 <div class="about-us-img">
-                    <img src="img/sokoban.jpg" />
+                    <img src="img/devs/shahar.png" />
                 </div>
                 <div>
-                    <h2>Smith Anderson</h2>
-                    <h4>Character Designer</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique,
-                        enim magna pretium augue, eget consectetur sem dui non urna. Integer gravida, diam congue molestie
-                        fringilla, elit odio rhoncus turpis, ac dictum libero elit vel metus. Morbi egestas sit amet velit
-                        eget venenatis. Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur
-                        sem dui non urna
+                    <h2>Shahar Zilberman</h2>
+                    <h4>Samurai</h4>
+                    <p>Shahar is 21 years old and is an activist vegan who likes to enjoy life
                     </p>
                     <div class="about-us-social">
                         <img src="img\social-icons\facebook.png" />
@@ -129,16 +125,12 @@
             </div>
             <div class="about-us-item">
                 <div class="about-us-img">
-                    <img src="img/bookShop.jpg" />
+                    <img src="img/devs/oded.png" />
                 </div>
                 <div>
-                    <h2>Smith Anderson2</h2>
-                    <h4>Character Designer</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porttitor, nibh at sagittis tristique,
-                        enim magna pretium augue, eget consectetur sem dui non urna. Integer gravida, diam congue molestie
-                        fringilla, elit odio rhoncus turpis, ac dictum libero elit vel metus. Morbi egestas sit amet velit
-                        eget venenatis. Mauris porttitor, nibh at sagittis tristique, enim magna pretium augue, eget consectetur
-                        sem dui non urna
+                    <h2>Oded Spitzer</h2>
+                    <h4>Ninja</h4>
+                    <p>Oded is 27 years old and likes to Netflix & chill and hang out with his friends
                     </p>
                     <div class="about-us-social">
                         <img src="img\social-icons\facebook.png" />

@@ -1,6 +1,7 @@
 .generator {
     display: flex;
     flex-flow: column wrap;
+    margin: 30px;
 }
 
 canvas {
@@ -38,7 +39,22 @@ canvas {
     padding: 5px;
 }
 
-/* .step-two {
+.step-two {
+    display: none;
+    flex-flow: column wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.meme {
     display: flex;
     flex-flow: row-reverse wrap;
-} */
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.show {
+    display: flex;
+}

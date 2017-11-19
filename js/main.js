@@ -11,7 +11,7 @@ var gImgObjs = [
     { id: 7, name: 'One-Does-Not-Simply', url: 'img/memes/One-Does-Not-Simply.jpg', keywords: ['human', 'sean', 'bean', 'lord of the rings', 'boromir'] },
     { id: 8, name: 'Third-World-Skeptical-Kid', url: 'img/memes/Third-World-Skeptical-Kid.jpg', keywords: ['problem', 'human', 'black', 'african'] },
     { id: 9, name: 'X-Everywhere', url: 'img/memes/X-Everywhere.jpg', keywords: ['cartoon', 'buzz', 'woody', 'toy story'] },
-    { id: 10, name: 'Y-U-No', url: 'img/memes/Y-U-No.jpg', keywords: ['cartoon', 'angry'] },
+    { id: 10, name: 'Y-U-No', url: 'img/memes/Y-U-No.jpg', keywords: ['cartoon', 'angry', 'rage'] },
 ]
 
 var gKeywords = {};
@@ -50,11 +50,12 @@ function renderImages(ImgObjs) {
     var strHtml = '';
     ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
+        <div class="meme-card">
         <li>
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
-        <p>${imgObj.name}</p>
-        // <a href="lmgtfy/${imgObj.name}">About this meme</a>
-    </li>`
+        <p>${imgObj.name}</p><br>
+        </li>
+        </div>`
 })
     elGallery.innerHTML = strHtml;
     var elPopular = document.querySelector('.popular-keywords')

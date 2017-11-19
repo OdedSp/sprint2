@@ -5,41 +5,48 @@
 
 .gallery {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     /* align-items: center; */
     list-style: none;
     left: 40px;
+    width: 67%;
 }
 
-.gallery li {
+.meme-card {
     display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
+    flex-flow: column wrap;
+    justify-content: center;
     align-items: center;
     margin: 12px;
-}
-
-.gallery img {
-    width: 300px;
-    height: auto;    
-}
-
-.gallery p, .gallery a {
     color: black;
     text-decoration: none;
     margin: 5px;
 }
 
+.gallery img {
+    width: 200px;
+    height: 200px;    
+}
+
+.step-one {
+    display: none;
+    flex-direction: column;
+}
+
+.gallery-map {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.popular-keywords {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 33%;
+}
+
 .popular-keywords h6 {
     display: inline-block;
-    margin: 10px;
-}
-
-.step-one,.step-two {
-    display: none;
-}
-
-.show {
-    display: block;
 }
