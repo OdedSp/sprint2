@@ -79,11 +79,9 @@
     justify-content: space-between;
     align-items: center;
 }
-<<<<<<< HEAD
 .image-add input {
     padding: 5px;
 }
-=======
 
 .imageAdd {
     align-self: center;
@@ -95,4 +93,14 @@
     justify-content: space-between;
     height: 100px;
 }
->>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
+
+.imageAdd {
+    align-self: center;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px;
+}

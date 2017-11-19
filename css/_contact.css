@@ -67,27 +67,14 @@
     align-items: flex-start;
 }
 
-<<<<<<< HEAD
-.contact-container div:not(.info) {
-=======
-/* .contact-container div {
->>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
-    max-width: 180px;
-    height: 117px;
-    margin-top: 67px;
-} */
-
 .message-details {
     display: flex;
     justify-content: space-between;
 }
 
-<<<<<<< HEAD
-
 .info {
     align-self: flex-start;
 }
-=======
 .contact-message {
     display: flex;
     flex-direction: column;
@@ -123,4 +110,3 @@
     flex-direction: column;
     height: 120px;
 }
->>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
