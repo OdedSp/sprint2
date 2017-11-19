@@ -22,7 +22,13 @@
     max-width: 100%;
 }
 
-.about-us h2,.about-us p {
+.about-us h2 {
+    color: white;
+    margin: 0px;
+    font-family: MavenPro;
+}
+
+.about-us p {
     color: white;
     margin: 0px;
 }

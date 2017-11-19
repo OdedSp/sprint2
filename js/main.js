@@ -11,12 +11,12 @@ var gImgObjs = [
     { id: 7, name: 'One-Does-Not-Simply', url: 'img/memes/One-Does-Not-Simply.jpg', keywords: ['human', 'sean', 'bean', 'lord of the rings', 'boromir'] },
     { id: 8, name: 'Third-World-Skeptical-Kid', url: 'img/memes/Third-World-Skeptical-Kid.jpg', keywords: ['problem', 'human', 'black', 'african'] },
     { id: 9, name: 'X-Everywhere', url: 'img/memes/X-Everywhere.jpg', keywords: ['cartoon', 'buzz', 'woody', 'toy story'] },
-    { id: 10, name: 'Y-U-No', url: 'img/memes/Y-U-No.jpg', keywords: ['cartoon', 'angry'] },
+    { id: 10, name: 'Y-U-No', url: 'img/memes/Y-U-No.jpg', keywords: ['cartoon', 'angry', 'rage'] },
 ]
 
 var gKeywords = {};
 
-var gUserPrefs = { imgId: 1, align: 'center', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
+var gUserPrefs = { imgId: 1, align: 'center', pos: 150, fillColor: 'white', fontSize: 30, font: "Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif", shadowBlur: 0 }
 
 var gCanvas = document.querySelector('canvas');
 var gInputs = [];
@@ -46,11 +46,12 @@ function renderImages(ImgObjs) {
     var strHtml = '';
     ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
+        <div class="meme-card">
         <li>
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
-        <p>${imgObj.name}</p>
-        // <a href="lmgtfy/${imgObj.name}">About this meme</a>
-    </li>`
+        <p>${imgObj.name}</p><br>
+        </li>
+        </div>`
 })
     elGallery.innerHTML = strHtml;
     var elPopular = document.querySelector('.popular-keywords')
@@ -85,13 +86,13 @@ function changeStep(step, imgId) {
     var step1 = document.querySelector('.step-one');
     var elTopText = document.querySelector('.top-txt');
     var elBottomText = document.querySelector('.bottom-txt');
-    elTopText.value = 'top meme text'
+    elTopText.value = ''
     elBottomText.value = ''
-    if (step1.classList.contains('show') && !imgId) {
-        imgId = 10;
-        elTopText.value = 'y u no'
-        elBottomText.value = 'choose image?'
-    }
+    // if (step1.classList.contains('show') && !imgId) {
+    //     imgId = 10;
+    //     elTopText.value = 'y u no'
+    //     elBottomText.value = 'choose image?'
+    // }
     var elPrevStep = document.querySelector('.show');
     elPrevStep.classList.remove('show')
     var elCurrStep = document.querySelector('.' + step + '')
@@ -207,4 +208,9 @@ function addInput() {
     input.setAttribute('class', 'input-' + gInputs.length + '');
     input.setAttribute('oninput', 'renderCanvas()');
     var inputsContainer = document.querySelector('.inputs-container').appendChild(input);
+}
+
+function backToGallery() {
+    document.querySelector('.step-one').classList.add('show')
+    document.querySelector('.step-two').classList.remove('show')
 }
