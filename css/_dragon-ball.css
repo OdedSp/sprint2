@@ -1,0 +1,26 @@
+
+
+/* .drag-input {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: rgba(255, 1, 1, 0.336);
+    color: rgba(255, 255, 255, 0);
+} */
+
+.inputs-container div {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f100;
+    text-align: center;
+    border: 1px solid #d3d3d300;
+    border: 1px dotted gray;    
+}
+
+.inputs-container input {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: rgba(255, 1, 1, 0);
+    color: rgba(255, 255, 255, 0);
+}

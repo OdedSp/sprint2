@@ -16,10 +16,14 @@ var gImgObjs = [
 
 var gKeywords = {};
 
-var gUserPrefs = { imgId: 1, align: 'center', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
+var gUserPrefs = { imgId: 1, align: 'left', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
+
+var gCanvasInfo = {imgId: 1, texts: [
+    {content: '', posX: 50, posY: 50, align: 'center', fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0}
+]}
+
 
 var gCanvas = document.querySelector('canvas');
-var gInputs = [];
 
 function init() {
     getKeywordsMap()
@@ -82,53 +86,35 @@ function filterBySearch(userKey, ev) {
 }
 
 function changeStep(step, imgId) {
-    var step1 = document.querySelector('.step-one');
-    var elTopText = document.querySelector('.top-txt');
-    var elBottomText = document.querySelector('.bottom-txt');
-    elTopText.value = 'top meme text'
-    elBottomText.value = ''
-    if (step1.classList.contains('show') && !imgId) {
-        imgId = 10;
-        elTopText.value = 'y u no'
-        elBottomText.value = 'choose image?'
-    }
     var elPrevStep = document.querySelector('.show');
     elPrevStep.classList.remove('show')
     var elCurrStep = document.querySelector('.' + step + '')
     elCurrStep.classList.add('show')
-    gUserPrefs.imgId = imgId;
-    if (imgId) renderCanvas();
+    gCanvasInfo.imgId = imgId;
+    if (imgId) renderCanvas();    
 }
 
 function renderCanvas() {
     var canvas = gCanvas;
     var ctx = canvas.getContext('2d');
-    var img = document.querySelector('.img-' + gUserPrefs.imgId + '');
+    var img = document.querySelector('.img-' + gCanvasInfo.imgId + '');
     var canvasHeight = img.naturalHeight;
     var canvasWidth = img.naturalWidth;
     canvas.height = canvasHeight;
     canvas.width = canvasWidth;
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    ctx.font = gUserPrefs.fontSize + "px " + gUserPrefs.font;
-    ctx.strokeStyle = 'black';
-    ctx.lineWidth = 4;
-    ctx.fillStyle = gUserPrefs.fillColor;
-    ctx.textAlign = gUserPrefs.align;
-    ctx.shadowColor = 'black'
-    ctx.shadowBlur = gUserPrefs.shadowBlur;
-    var topText = document.querySelector('.top-txt').value;
-    ctx.strokeText(topText, gUserPrefs.pos, 50);
-    ctx.fillText(topText, gUserPrefs.pos, 50);
-    var bottomText = document.querySelector('.bottom-txt').value;
-    ctx.strokeText(bottomText, gUserPrefs.pos, canvas.height-50);
-    ctx.fillText(bottomText, gUserPrefs.pos, canvas.height-50);
-    gInputs.forEach(function (input, idx) {
-        var currText = document.querySelector('.input-' + (idx + 1) + '').value
-        ctx.strokeText(currText, gUserPrefs.pos, 100);
-        ctx.fillText(currText, gUserPrefs.pos, 100);
+    gCanvasInfo.texts.forEach(function (input, idx) {
+        ctx.font = gCanvasInfo.texts[idx].fontSize + "px " + gCanvasInfo.texts[idx].font;
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 4;
+        ctx.fillStyle = gCanvasInfo.texts[idx].fillColor;
+        ctx.textAlign = gCanvasInfo.texts[idx].align;
+        ctx.shadowColor = 'black'
+        ctx.shadowBlur = gCanvasInfo.texts[idx].shadowBlur;
+        var currText = gCanvasInfo.texts[idx].content
+        ctx.strokeText(currText, gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
+        ctx.fillText(currText, gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
     })
-
 }
 
 function alignText(align) {
@@ -202,9 +188,22 @@ function downloadImg(elLink) {
 
 
 function addInput() {
-    gInputs.push('' + (gInputs.length + 1) + '')
+    gCanvasInfo.texts.push(
+        {content: '', posX: 100, posY: 100, align: 'left', fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0}
+    )
     var input = document.createElement('input');
-    input.setAttribute('class', 'input-' + gInputs.length + '');
-    input.setAttribute('oninput', 'renderCanvas()');
-    var inputsContainer = document.querySelector('.inputs-container').appendChild(input);
+    input.setAttribute('class', 'input-' + gCanvasInfo.texts.length + '');
+    input.setAttribute('oninput', 'updateTxt('+ gCanvasInfo.texts.length + ')');
+    var div = document.createElement('div');
+    div.setAttribute('onclick', 'dragElement('+gCanvasInfo.texts.length+')')
+    div.setAttribute('class', 'div-' + gCanvasInfo.texts.length + '')
+    div.appendChild(input)
+    var inputsContainer = document.querySelector('.inputs-container').appendChild(div);
+}
+
+
+function updateTxt(id){
+    var value = document.querySelector('.input-' + id + '').value
+    gCanvasInfo.texts[id-1].content = value;
+    renderCanvas()
 }

@@ -70,9 +70,14 @@
                 <div class="popular-keywords"></div>
             </div>
             <div class="step-two">
+
+                <div class="drag-div">
+                    <!-- <input class="drag-input" oninput="renderCanvas()" /> -->
+                </div>
+
                 <div class="user-input" onclick="renderCanvas()">
                     <div class="inputs-container"></div>
-                    <input class="top-txt" oninput="renderCanvas()" />
+                    <input class="input-1" oninput="updateTxt(1)" />
                     <div class="align-text">
                         <button onclick="alignText('end')">right</button>
                         <button onclick="alignText('center')">center</button>
@@ -89,10 +94,10 @@
                         <option value="Lato">Lato</option>
                     </select>
                     <button onclick="deleteText()">🗑</button>
-                    <input class="bottom-txt" placeholder="(optional) bottom text" oninput="renderCanvas()" />
+                    <!-- <input class="input-2" placeholder="(optional) bottom text" oninput="renderCanvas()" /> -->
                     <button class="add-text" onclick="addInput()"> add</button>
                 </div>
-                <canvas>
+                <canvas>        
                 </canvas>
                 <button>
                     <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
@@ -180,6 +185,7 @@
         <p>© Copyright 2013 by PSDchat</p>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/dragon-ball.js"></script>
 
 </body>
 
