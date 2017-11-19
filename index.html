@@ -60,7 +60,7 @@
                     <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
                     <button onclick="filterBySearch()">search</button>
                 </div>
-                <div>
+                <div class="imageAdd">
                     <input class="usersImgUrl" placeholder="enter your image url" />
                     <input class="usersImgName" placeholder="enter your meme name" />
                     <button onclick="addUserImg()">submit</button>
@@ -76,7 +76,7 @@
                 <div class="meme">
                     <div class="user-input" onclick="renderCanvas()">
                         <div class="inputs-container"></div>
-                        <input class="top-txt" placeholder="text 1" oninput="renderCanvas()" />
+                        <input class="input-1" oninput="updateTxt(1)"/>
                         <div class="align-text">
                             <button onclick="alignText('start')">left</button>
                             <button onclick="alignText('center')">center</button>
@@ -94,7 +94,6 @@
                             <option value="Lato">Lato</option>
                         </select>
                         <button onclick="deleteText()">🗑</button>
-                        <input class="bottom-txt" placeholder="text 2" oninput="renderCanvas()" />
                         <button class="add-text" onclick="addInput()"> add</button>
                     </div>
                     <canvas></canvas>
@@ -177,6 +176,7 @@
         <p>© Copyright 2013 by PSDchat</p>
     </div>
     <script src="js/main.js"></script>
+    <script src="js/dragon-ball.js"></script>
 
 </body>
 
