@@ -1,37 +1,38 @@
-.generator {
-    height: 100%;
-    width: 100%;
-}
-
-.gallery {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
-    /* align-items: center; */
-    list-style: none;
-    left: 40px;
-}
-
-.gallery li {
-    display: flex;
-    flex-wrap: wrap;
-    /* justify-content: space-between; */
-    align-items: center;
-    margin: 12px;
-}
-
-.gallery img {
-    height: 300px;
+canvas {
     width: 300px;
+    height: 300px;
+    border: 1px solid black;
 }
 
-.gallery p, .gallery a {
-    color: black;
-    text-decoration: none;
-    margin: 5px;
+.steps-nav ul{
+    list-style-type: none;
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    background-color: gray;
 }
 
-.popular-keywords h6 {
-    display: inline-block;
-    margin: 10px;
+.search-box {
+    margin: 20px 0;    
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.search {
+    width: 90%;
+    background-color: rgb(219, 219, 219);
+    border: 0px;
+    border-radius: 2px;
+    height: 25px;
+}
+
+.search-box button {
+    background-color: #2eb398;
+    border: none;
+    color: white;
+    padding: 5px;
 }

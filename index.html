@@ -9,29 +9,97 @@
 </head>
 
 <body onload="init()">
-    <div class="container">
-        <nav>
+    <nav>
+        <input type="checkbox" id="nav-checkbox">
+        <label for="nav-checkbox" class="main-nav-icon">
+            <div class="pointy-thingy">
+                <img src="img/pointy-thingy.png" />
+                <img src="img/arrow.png" alt="arrow down" />
+            </div>
+        </label>
+        <div class="nav-container">
             <ul>
                 <li>portfolio</li>
                 <li class="list-point">·</li>
                 <li>about</li>
-                <li class="pointy-thingy">
-                    <img src="img/arrow.png" alt="arrow down">
-                </li>
+            </ul>
+            <ul>
                 <li>blog</li>
                 <li class="list-point">·</li>
                 <li>get in touch</li>
             </ul>
-        </nav>
-        <div class="sub-nav">
-            <!-- <img src="img/pointy-thingy.png" alt="nav design"> -->
         </div>
-        search meme: <input class="search" placeholder="keyword"/> <button onclick="filterBySearch()">search</button>
+    </nav>
+    <div class="container">
+        <div class="steps-container">
+            <h1>Create a Meme</h1>
+            <div class="steps-nav">
+                <div onclick="changeStep('step-one')">
+                    <span class="step-num">
+                        <h3>1</h3>
+                    </span>
+                    <p>Choose or upload image</p>
+                </div>
+                <div onclick="changeStep('step-two')">
+                    <span class="step-num">
+                        <h3>2</h3>
+                    </span>
+                    <p>Add text</p>
+                </div>
+                <div onclick="changeStep()">
+                    <span class="step-num">
+                        <h3>3</h3>
+                    </span>
+                    <p>Seve and share!</p>
+                </div>
+            </div>
+        </div>
         <div class="generator">
-            <ul class="gallery">
-            </ul>
+            <div class="step-one show">
+                <div class="search-box">
+                    <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
+                    <button onclick="filterBySearch()">search</button>
+                </div>
+                <div>
+                    <input class="usersImgUrl" placeholder="enter your image url" />
+                    <input class="usersImgName" placeholder="enter your meme name" />
+                    <button onclick="addUserImg()">submit</button>
+                </div>
+                <ul class="gallery">
+                </ul>
+                <div class="popular-keywords"></div>
+            </div>
+            <div class="step-two">
+                <div onclick="renderCanvas()">
+                    <input class="top-txt" oninput="renderCanvas()" />
+                    <div class="align-text">
+                        <button onclick="alignText('end')">right</button>
+                        <button onclick="alignText('center')">center</button>
+                        <button onclick="alignText('start')">left</button>
+                    </div>
+                    <div class="font-size">
+                        <button onclick="changeFontSize('+')">+</button>
+                        <button onclick="changeFontSize('-')">-</button>
+                    </div>
+                    <div class="text-color">
+                        <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
+                    </div>
+                    <button onclick="toggleShadow()">shadow</button>
+                    <select class="font-family" onchange="changeFont()">
+                        <option value="Arial">Ariel</option>
+                        <option value="Lato">Lato</option>
+                    </select>
+                    <button onclick="deleteText()">🗑</button>
+                    <input class="bottom-txt" placeholder="(optional) bottom text" oninput="renderCanvas()" />
+
+                </div>
+                <div>
+                    <canvas>
+                    </canvas>
+                </div>
+                <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
+            </div>
         </div>
-        <div class="popular-keywords"></div>
         <div class="about-us">
             <div class="about-us-item">
                 <div class="about-us-img">
@@ -92,8 +160,25 @@
                     <p>Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin
                         sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
                 </div>
+                <div>
+                    <img src="img\location.png" />
+                    <div>Elm St. 14/05 Lost City</div>
+                </div>
+                <div>
+                    <img src="img\phone.png" />
+                    <div>+ 3528 331 86 35 </div>
+                </div>
+                <div>
+                    <img src="img\mail.png" />
+                    <div>info@hexalcorp.com</div>
+                </div>
+
             </div>
         </div>
+
+    </div>
+    <div class="footer">
+        <p>© Copyright 2013 by PSDchat</p>
     </div>
     <script src="js/main.js"></script>
 

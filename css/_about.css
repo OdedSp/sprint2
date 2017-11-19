@@ -22,7 +22,7 @@
     max-width: 100%;
 }
 
-.about-us h2,p {
+.about-us h2,.about-us p {
     color: white;
     margin: 0px;
 }
