@@ -18,6 +18,8 @@ var gKeywords = {};
 
 var gUserPrefs = { imgId: 1, align: 'center', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
 
+var gInputs = [];
+
 function init() {
     getKeywordsMap()
     renderImages(gImgObjs);
@@ -102,9 +104,6 @@ function renderCanvas() {
     var ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     var img = document.querySelector('.img-' + gUserPrefs.imgId + '');
-    img.onload = function () {
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-    }
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     ctx.font = gUserPrefs.fontSize + "px " + gUserPrefs.font;
     ctx.strokeStyle = 'black';
@@ -119,6 +118,14 @@ function renderCanvas() {
     var bottomText = document.querySelector('.bottom-txt').value;
     ctx.strokeText(bottomText, gUserPrefs.pos, 150);
     ctx.fillText(bottomText, gUserPrefs.pos, 150);
+
+
+    gInputs.forEach(function (input, idx) {
+        var currText = document.querySelector('.input-' + (idx + 1) + '').value
+        ctx.strokeText(currText, gUserPrefs.pos, 100);
+        ctx.fillText(currText, gUserPrefs.pos, 100);
+    })
+
 }
 
 function alignText(align) {
@@ -182,9 +189,18 @@ function deleteText() {
     renderCanvas();
 }
 
+
 function downloadImg(elLink) {
-    var canvas = document.querySelector('canves')
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
+    var canvas = document.querySelector('canvas')
+    elLink.href = canvas.toDataURL();
+    elLink.download = 'meMeme.jpg';
+}
+
+
+function addInput() {
+    gInputs.push('' + (gInputs.length + 1) + '')
+    var input = document.createElement('input');
+    input.setAttribute('class', 'input-' + gInputs.length + '');
+    input.setAttribute('oninput', 'renderCanvas()');
+    var inputsContainer = document.querySelector('.inputs-container').appendChild(input);
 }
