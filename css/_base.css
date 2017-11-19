@@ -1,0 +1,17 @@
+input {
+    background-color: rgb(219, 219, 219);
+    border: 0px;
+    border-radius: 2px;
+    height: 25px;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    background-color: #2eb398;
+    border: none;
+    color: white;
+    padding: 5px;
+}
