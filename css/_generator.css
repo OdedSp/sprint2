@@ -3,58 +3,97 @@
     flex-flow: column wrap;
     margin: 30px;
 }
-
 canvas {
-    max-width: 450px;
+    max-width: 60vw;
     max-height: 1000px;
-    border: 1px solid black;
 }
-
-.steps-nav ul{
-    list-style-type: none;
-    display: flex;
-    width: 60vw;
-    justify-content: space-between;
-    background-color: gray;
-}
-
-.search-box {
-    margin: 20px 0;    
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-}
-
-.search {
-    width: 90%;
-}
-
-.search-box button {
-    background-color: #2eb398;
-    border: none;
-    color: white;
-    padding: 5px;
-}
-
 .step-two {
     display: none;
     flex-flow: column wrap;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    margin: auto;
 }
-
+.inputs-container {
+    display: none;
+}
+.inputs-container-mobile {
+    display: block;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .meme {
     display: flex;
-    flex-flow: row-reverse wrap;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    margin: 10px;
+    margin: 20px;
+    max-width: 60vw;
+}
+#edit-checkbox {
+    display: none;
 }
 
-.show {
+.open-edit {
+    color: #2eb398;
+
+}
+.user-input {
+    transform: scaleY(0);
+    transform-origin: top;    
+    transition: 0.5s;
+    opacity: 0;
+    width: 100%;
     display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #454545;
+    padding: 15px;
+    border-radius: 5px;
+}
+.user-input div {
+    display: inline-block;
+}
+
+#edit-checkbox:checked ~ .user-input {
+    transform: scaleY(1);    
+    opacity: 1
+} 
+.meme button {
+    font-size: 25px;
+    margin: 3px;
+    border-radius: 4px;
+}
+.inputs-container-mobile input{
+    width: 60vw;
+    height: 50px;
+    margin: 10px;
+    margin: 0px;
+}
+
+@media (min-width: 740px) {
+    .inputs-container {
+        display: block;
+        left: 100px;
+    }
+    .inputs-container-mobile {
+        display: none;
+    }
+    .meme {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 10px;
+    }
+    .user-input {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    .open-edit::before {
+        display: none;
+    }
+    
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="lib\font-awesome-4.7.0\css\font-awesome.css">
     <title>Meme Generator</title>
 </head>
 
@@ -31,72 +32,67 @@
         </div>
     </nav>
     <div class="container">
-        <!-- <div class="steps-container">
-            <h1>Create a Meme</h1>
-            <div class="steps-nav">
-                <div onclick="changeStep('step-one')">
-                    <span class="step-num">
-                        <h3>1</h3>
-                    </span>
-                    <p>Choose or upload image</p>
-                </div>
-                <div onclick="changeStep('step-two')">
-                    <span class="step-num">
-                        <h3>2</h3>
-                    </span>
-                    <p>Add text</p>
-                </div>
-                <div onclick="changeStep()">
-                    <span class="step-num">
-                        <h3>3</h3>
-                    </span>
-                    <p>Seve and share!</p>
-                </div>
-            </div>
-        </div> -->
         <div class="generator">
             <div class="step-one show">
                 <div class="search-box">
                     <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
                     <button onclick="filterBySearch()">search</button>
+                    <button>
+                        <a class="choose-keyword" href="#popular-keywords">Choose from list</a>
+                    </button>
                 </div>
-                <div class="imageAdd">
-                    <input class="usersImgUrl" placeholder="enter your image url" />
-                    <input class="usersImgName" placeholder="enter your meme name" />
+
+                <div class="image-add">
+                    <div>
+                        <input class="usersImgUrl" placeholder="enter your image url" />
+                        <input class="usersImgName" placeholder="enter your meme name" />
+                    </div>
                     <button onclick="addUserImg()">submit</button>
                 </div>
+                <input id="file" type="file" />
                 <div class="gallery-map">
                     <ul class="gallery">
                     </ul>
-                    <div class="popular-keywords"></div>
                 </div>
+                <div id="popular-keywords" class="popular-keywords"></div>
             </div>
             <div class="step-two">
-                <button onclick="backToGallery()">Back to Image gallery</button>
+                <button onclick="changeStep('step-one')">Back to Image gallery</button>
                 <div class="meme">
+                    <div class="canvas-div">
+                        <canvas></canvas>
+                    </div>
+                    <div class="inputs-container-mobile"></div>
+                    <div class="inputs-container"></div>
+                    <input type="checkbox" id="edit-checkbox">
+                    <label class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
                     <div class="user-input" onclick="renderCanvas()">
-                        <div class="inputs-container"></div>
-                        <input class="input-1" oninput="updateTxt(1)"/>
                         <div class="align-text">
-                            <button onclick="alignText('start')">left</button>
-                            <button onclick="alignText('center')">center</button>
-                            <button onclick="alignText('end')">right</button>
+                            <button class="fa fa-align-left" onclick="alignText('start')"></button>
+                            <button class="fa fa-align-center" onclick="alignText('center')"></button>
+                            <button class="fa fa-align-right" onclick="alignText('end')"></button>
                         </div>
+                        <button onclick="changeTextHeight('+',1)" class="fa fa-arrow-up"></button>
+                        <button onclick="changeTextHeight('-',1)" class="fa fa-arrow-down"></button>
                         <div class="font-size">
                             <button onclick="changeFontSize('+')">+</button>
-                            <button onclick="changeFontSize('-')">-</button>
+                            <button onclick="changeFontSize('-')"> - </button>
                         </div>
-                        <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
+                        <button class="fa fa-paint-brush">
+                            <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
+                        </button>
                         <button onclick="toggleShadow()">shadow</button>
-                        <select class="font-family" onchange="changeFont()">
-                            <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
-                            <option value="Arial">Ariel</option>
-                            <option value="Lato">Lato</option>
-                        </select>
-                        <button onclick="deleteText()">🗑</button>
-                        <button class="add-text" onclick="addInput()"> add</button>
+                        <button>
+                            <span class="fa fa-font"></span>
+                            <select class="font-family" onchange="changeFont()">
+                                <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
+                                <option value="Arial">Ariel</option>
+                                <option value="Lato">Lato</option>
+                            </select>
+                            </select>
+                            <button onclick="deleteText()" class="fa fa-trash-o"></button>
+                            <button class="add-text" onclick="addInput()"> add</button>
                     </div>
-                    <canvas></canvas>
                 </div>
                 <button>
                     <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
@@ -106,7 +102,7 @@
         <div class="about-us">
             <div class="about-us-item">
                 <div class="about-us-img">
-                    <img src="img/devs/shahar.png" />
+                    <img src="img/sokoban.jpg" />
                 </div>
                 <div>
                     <h2>Shahar Zilberman</h2>
@@ -155,17 +151,16 @@
                     <p>Quisque Hendrerit: purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus. Proin
                         sit amet volutpat libero. Nulla sed nunc et tortor luctus faucibus morbi vitae. </p>
                 </div>
-                <div>
-                    <img src="img\location.png" />
-                    <div>Elm St. 14/05 Lost City</div>
-                </div>
-                <div>
-                    <img src="img\phone.png" />
-                    <div>+ 3528 331 86 35 </div>
-                </div>
-                <div>
-                    <img src="img\mail.png" />
-                    <div>info@hexalcorp.com</div>
+                <div class="info">
+                    <p class="personal-info">
+                        <img src="img/location.png" alt=""> Elm St. 14/05 Lost City
+                    </p>
+                    <p class="personal-info">
+                        <img src="img/phone.png" alt=""> +3528 3318635
+                    </p>
+                    <p class="personal-info">
+                        <img src="img/mail.png" alt=""> info@gmail.com
+                    </p>
                 </div>
 
             </div>

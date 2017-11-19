@@ -16,12 +16,9 @@ var gImgObjs = [
 
 var gKeywords = {};
 
-var gUserPrefs = { imgId: 1, align: 'left', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
+var gCanvasInfo = { imgId: 1, texts: [] }
 
-var gCanvasInfo = {imgId: 1, texts: [
-    {content: '', posX: 50, posY: 50, align: 'center', fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0}
-]}
-
+var gCurrinput;
 
 var gCanvas = document.querySelector('canvas');
 
@@ -56,14 +53,9 @@ function renderImages(ImgObjs) {
         <p>${imgObj.name}</p><br>
         </li>
         </div>`
-})
+        renderKeywords()        
+    })
     elGallery.innerHTML = strHtml;
-    var elPopular = document.querySelector('.popular-keywords')
-    var popularStrHmnl = ''
-    for (var key in gKeywords) {
-        popularStrHmnl += `<h6 onclick="filterBySearch('${key}')" style="font-size: ${gKeywords[key].count}em">${key}<h6/>`
-        elPopular.innerHTML = popularStrHmnl;
-    }
 }
 
 function getKeywordsMap() {
@@ -85,14 +77,22 @@ function filterBySearch(userKey, ev) {
     var filterdImgs = gKeywords[userKey].imgObjs;
     renderImages(filterdImgs);
 }
-
+function renderKeywords() {
+    var elContainer = document.querySelector('.popular-keywords')
+    var strHTML = '';
+    for (var key in gKeywords) {
+        strHTML += `<h6 onclick="filterBySearch('${key}')" style="font-size: ${gKeywords[key].count}em">${key}<h6/>`
+        elContainer.innerHTML = strHTML;
+    }
+}
 function changeStep(step, imgId) {
     var elPrevStep = document.querySelector('.show');
     elPrevStep.classList.remove('show')
     var elCurrStep = document.querySelector('.' + step + '')
     elCurrStep.classList.add('show')
     gCanvasInfo.imgId = imgId;
-    if (imgId) renderCanvas();    
+    if (imgId) renderCanvas();
+    addInput()
 }
 
 function renderCanvas() {
@@ -113,8 +113,8 @@ function renderCanvas() {
         ctx.shadowColor = 'black'
         ctx.shadowBlur = gCanvasInfo.texts[idx].shadowBlur;
         var currText = gCanvasInfo.texts[idx].content
-        ctx.strokeText(currText, gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
-        ctx.fillText(currText, gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
+        ctx.strokeText(currText.toUpperCase(), gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
+        ctx.fillText(currText.toUpperCase(), gCanvasInfo.texts[idx].posX, gCanvasInfo.texts[idx].posY);
     })
 }
 
@@ -126,41 +126,42 @@ function alignText(align) {
             pos = 10;
             break;
         case 'end':
-            pos = canvas.width-10;
+            pos = canvas.width - 10;
             break;
         default:
-            pos = canvas.width/2;
+            pos = canvas.width / 2;
             break;
     }
-    gUserPrefs.align = align;
-    gUserPrefs.pos = pos;
+    gCanvasInfo.texts[gCurrinput].align = align;
+    gCanvasInfo.texts[gCurrinput].posX = pos;
 }
 
 function changeFontSize(op) {
+    var currInput = document.activeElement
     if (op === '+') {
-        gUserPrefs.fontSize++
+        gCanvasInfo.texts[gCurrinput].fontSize++
     } else {
-        gUserPrefs.fontSize--
+        gCanvasInfo.texts[gCurrinput].fontSize--
     }
 }
 
 function changeTextColor() {
     var color = document.querySelector('.fill-color').value;
-    gUserPrefs.fillColor = color;
+    gCanvasInfo.texts[gCurrinput].fillColor = color;
     renderCanvas()
 }
 
 function toggleShadow() {
-    if (gUserPrefs.shadowBlur === 0) {
-        gUserPrefs.shadowBlur = 5;
+    if (gCanvasInfo.texts[gCurrinput].shadowBlur === 0) {
+        gCanvasInfo.texts[gCurrinput].shadowBlur = 5;
     } else {
-        gUserPrefs.shadowBlur = 0;
+        gCanvasInfo.texts[gCurrinput].shadowBlur = 0;
     }
 }
 
 function changeFont() {
     var font = document.querySelector('.font-family').value;
-    gUserPrefs.font = font;
+    gCanvasInfo.texts[gCurrinput].font = font;
     renderCanvas()
 }
 
@@ -169,43 +170,65 @@ function addUserImg() {
     var elUrl = document.querySelector('.usersImgUrl').value
     var newImgObj = { id: gImgObjs.length + 1, name: elName, url: elUrl, keywords: elName }
     gImgObjs.push(newImgObj)
-    gUserPrefs.imgId = gImgObjs.length;
+    gCanvasInfo.texts[gCurrinput].imgId = gImgObjs.length;
     renderImages(gImgObjs)
     changeStep('step-two', gImgObjs.length)
 }
 
 function deleteText() {
-    var elTopText = document.querySelector('.top-txt');
+    var elCurrText = document.querySelector('.top-txt');
     elTopText.value = '';
     renderCanvas();
 }
-
-
-function downloadImg(elLink) {
-    var canvas = document.querySelector('canvas')
-    elLink.href = canvas.toDataURL();
-    elLink.download = 'meMeme.jpg';
+function changeTextHeight(operator, lineId) {
+    if (operator === '+') gCanvasInfo.texts[gCurrinput].posY -= 10;
+    else gCanvasInfo.texts[gCurrinput].posY += 10;
+    renderCanvas();
 }
 
+function downloadImg(elLink) {
+    elLink.href = gCanvas.toDataURL();
+    elLink.download = 'myMeme.jpg';
+}
 
 function addInput() {
     gCanvasInfo.texts.push(
-        {content: '', posX: 100, posY: 100, align: 'left', fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0}
+        { content: '', posX: 100, posY: 100, align: 'left', fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
     )
     var input = document.createElement('input');
     input.setAttribute('class', 'input-' + gCanvasInfo.texts.length + '');
-    input.setAttribute('oninput', 'updateTxt('+ gCanvasInfo.texts.length + ')');
+    input.setAttribute('oninput', 'updateTxt(' + gCanvasInfo.texts.length + ')');
+    input.setAttribute('onfocus', 'setCurrInput(' + gCanvasInfo.texts.length + ')');
+    input.autofocus = true;
     var div = document.createElement('div');
-    div.setAttribute('onmousedown', 'dragElement('+gCanvasInfo.texts.length+')')
-    div.setAttribute('onTap', 'dragElement('+gCanvasInfo.texts.length+')')
+    div.setAttribute('onmousedown', 'dragElement(' + gCanvasInfo.texts.length + ')')
+    div.setAttribute('onTap', 'dragElement(' + gCanvasInfo.texts.length + ')')
+    div.setAttribute('onTap', 'dragElement(' + gCanvasInfo.texts.length + ')')
     div.setAttribute('class', 'div-' + gCanvasInfo.texts.length + '')
     div.appendChild(input)
     var inputsContainer = document.querySelector('.inputs-container').appendChild(div);
+    dragElement(gCanvasInfo.texts.length)
+    addInputMobile()
+}
+function addInputMobile() {
+    var input = document.createElement('input');
+    input.setAttribute('class', 'mobile-input-' + gCanvasInfo.texts.length + '');
+    input.setAttribute('oninput', 'mobileUpdateTxt(' + gCanvasInfo.texts.length + ')');
+    input.setAttribute('onfocus', 'setCurrInput(' + gCanvasInfo.texts.length + ')');
+    var inputsContainerMobile = document.querySelector('.inputs-container-mobile').appendChild(input);
 }
 
-
-function updateTxt(id){
+function updateTxt(id) {
     var value = document.querySelector('.input-' + id + '').value
-    gCanvasInfo.texts[id-1].content = value;
+    gCanvasInfo.texts[id - 1].content = value;
     renderCanvas()
+}
+function mobileUpdateTxt(id) {
+    var value = document.querySelector('.mobile-input-' + id + '').value
+    gCanvasInfo.texts[id - 1].content = value;
+    renderCanvas()
+}
+
+function setCurrInput(inputId) {
+    gCurrinput = inputId - 1
 }

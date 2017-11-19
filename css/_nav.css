@@ -23,6 +23,7 @@ nav {
     transform-origin: top;    
     transition: 0.5s;
     opacity: 0;
+    z-index: 3;
 }
 
 #nav-checkbox:checked ~ .nav-container {
@@ -84,7 +85,7 @@ nav ul li:hover {
     
 }
 
-@media (min-width: 700px) {
+@media (min-width: 740px) {
     nav {
         display: flex;
         align-items: center;

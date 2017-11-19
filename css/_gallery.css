@@ -7,7 +7,6 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    /* align-items: center; */
     list-style: none;
     left: 40px;
     width: 67%;
@@ -15,7 +14,7 @@
 
 .meme-card {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     margin: 12px;
@@ -42,11 +41,44 @@
 
 .popular-keywords {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    width: 33%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top:20px;
 }
 
 .popular-keywords h6 {
     display: inline-block;
+    margin: 5px;
+}
+
+.search {
+    width: 90%;
+    margin: 10px;
+}
+
+.search-box button {
+    background-color: #2eb398;
+    border: none;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.search-box {
+    margin: 20px 0;    
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.image-add input {
+    padding: 5px;
 }
