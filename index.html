@@ -37,9 +37,14 @@
                 <div class="search-box">
                     <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
                     <button onclick="filterBySearch()">search</button>
+<<<<<<< HEAD
                     <button>
                         <a class="choose-keyword" href="#popular-keywords">Choose from list</a>
                     </button>
+=======
+                    <button onclick="displayKeyMap()">Or search by map</button>
+                    <div class="popular-keywords"></div>
+>>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
                 </div>
 
                 <div class="image-add">
@@ -67,6 +72,11 @@
                     <input type="checkbox" id="edit-checkbox">
                     <label class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
                     <div class="user-input" onclick="renderCanvas()">
+<<<<<<< HEAD
+=======
+                        <div class="inputs-container"></div>
+                        <input class="input-1" oninput="updateTxt(1)" />
+>>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
                         <div class="align-text">
                             <button class="fa fa-align-left" onclick="alignText('start')"></button>
                             <button class="fa fa-align-center" onclick="alignText('center')"></button>
@@ -104,7 +114,7 @@
                 <div class="about-us-img">
                     <img src="img/sokoban.jpg" />
                 </div>
-                <div>
+                <div class="about-us-words">
                     <h2>Shahar Zilberman</h2>
                     <h4>Samurai</h4>
                     <p>Shahar is 21 years old and is an activist vegan who likes to enjoy life
@@ -123,7 +133,7 @@
                 <div class="about-us-img">
                     <img src="img/devs/oded.png" />
                 </div>
-                <div>
+                <div class="about-us-words">
                     <h2>Oded Spitzer</h2>
                     <h4>Ninja</h4>
                     <p>Oded is 27 years old and likes to Netflix & chill and hang out with his friends
@@ -143,6 +153,7 @@
             <div class="contact-container">
                 <h2>Get In Touch</h2>
                 <h4>In order to get in touch use the contact form below:</h4>
+<<<<<<< HEAD
                 <input placeholder="Name (Required)" />
                 <input placeholder="Email (Required)" />
                 <input placeholder="Subject" />
@@ -161,10 +172,37 @@
                     <p class="personal-info">
                         <img src="img/mail.png" alt=""> info@gmail.com
                     </p>
+=======
+                <div class="message-details">
+                    <div class="message">
+                        <input placeholder="Name (Required)" />
+                        <input placeholder="Email (Required)" />
+                        <input placeholder="Subject" />
+                        <textarea>Write your message here...</textarea>
+                    </div>
+                    <div class="beside-message">
+                        <div>
+                            <p>We would love to hear from you.</p>
+                        </div>
+                        <div class="images-details">
+                            <div class="contact-details">
+                                <p class="detail address">HaBonim 4, Ramat Gan</p>
+                                <p class="detail phone">(079) 555 1155</p>
+                                <p class="detail mail">admin@misterbit.co.il</p>
+                            </div>
+                            <!-- <div class="contact-imgs">
+                                <img src="img\location.png" />
+                                <img src="img\phone.png" />
+                                <img src="img\mail.png" />
+                            </div> -->
+                        </div>
+                    </div>
+>>>>>>> 41abde7dbb8025c1225bef63dda854087f9af4df
                 </div>
-
             </div>
+
         </div>
+    </div>
 
     </div>
     <div class="footer">
