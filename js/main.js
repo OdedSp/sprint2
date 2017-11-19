@@ -18,12 +18,14 @@ var gKeywords = {};
 
 var gUserPrefs = { imgId: 1, align: 'center', pos: 150, fillColor: 'white', fontSize: 30, font: 'Arial', shadowBlur: 0 }
 
+var gCanvas = document.querySelector('canvas');
 var gInputs = [];
 
 function init() {
     getKeywordsMap()
     renderImages(gImgObjs);
     renderCanvas()
+    expandKeywords();
 }
 
 //This function takes the name of the img object and iserts it to the keywords
@@ -37,8 +39,6 @@ function expandKeywords() {
     });
 }
 
-expandKeywords();
-
 //This function renders the img objects and the popular keywords to the DOM
 function renderImages(ImgObjs) {
     expandKeywords();
@@ -50,7 +50,8 @@ function renderImages(ImgObjs) {
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
         <p>${imgObj.name}</p>
         // <a href="lmgtfy/${imgObj.name}">About this meme</a>
-    </li>`})
+    </li>`
+})
     elGallery.innerHTML = strHtml;
     var elPopular = document.querySelector('.popular-keywords')
     var popularStrHmnl = ''
@@ -100,10 +101,14 @@ function changeStep(step, imgId) {
 }
 
 function renderCanvas() {
-    var canvas = document.querySelector('canvas');
+    var canvas = gCanvas;
     var ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
     var img = document.querySelector('.img-' + gUserPrefs.imgId + '');
+    var canvasHeight = img.naturalHeight;
+    var canvasWidth = img.naturalWidth;
+    canvas.height = canvasHeight;
+    canvas.width = canvasWidth;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     ctx.font = gUserPrefs.fontSize + "px " + gUserPrefs.font;
     ctx.strokeStyle = 'black';
@@ -116,10 +121,8 @@ function renderCanvas() {
     ctx.strokeText(topText, gUserPrefs.pos, 50);
     ctx.fillText(topText, gUserPrefs.pos, 50);
     var bottomText = document.querySelector('.bottom-txt').value;
-    ctx.strokeText(bottomText, gUserPrefs.pos, 150);
-    ctx.fillText(bottomText, gUserPrefs.pos, 150);
-
-
+    ctx.strokeText(bottomText, gUserPrefs.pos, canvas.height-50);
+    ctx.fillText(bottomText, gUserPrefs.pos, canvas.height-50);
     gInputs.forEach(function (input, idx) {
         var currText = document.querySelector('.input-' + (idx + 1) + '').value
         ctx.strokeText(currText, gUserPrefs.pos, 100);
@@ -129,16 +132,17 @@ function renderCanvas() {
 }
 
 function alignText(align) {
+    var canvas = gCanvas;
     var pos;
     switch (align) {
         case 'start':
-            pos = 0;
+            pos = 10;
             break;
         case 'end':
-            pos = 300;
+            pos = canvas.width-10;
             break;
         default:
-            pos = 150;
+            pos = canvas.width/2;
             break;
     }
     gUserPrefs.align = align;

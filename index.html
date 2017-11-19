@@ -70,7 +70,7 @@
                 <div class="popular-keywords"></div>
             </div>
             <div class="step-two">
-                <div onclick="renderCanvas()">
+                <div class="user-input" onclick="renderCanvas()">
                     <div class="inputs-container"></div>
                     <input class="top-txt" oninput="renderCanvas()" />
                     <div class="align-text">
@@ -82,9 +82,7 @@
                         <button onclick="changeFontSize('+')">+</button>
                         <button onclick="changeFontSize('-')">-</button>
                     </div>
-                    <div class="text-color">
-                        <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
-                    </div>
+                    <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
                     <button onclick="toggleShadow()">shadow</button>
                     <select class="font-family" onchange="changeFont()">
                         <option value="Arial">Ariel</option>
@@ -94,11 +92,11 @@
                     <input class="bottom-txt" placeholder="(optional) bottom text" oninput="renderCanvas()" />
                     <button class="add-text" onclick="addInput()"> add</button>
                 </div>
-                <div>
-                    <canvas>
-                    </canvas>
-                </div>
-                <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
+                <canvas>
+                </canvas>
+                <button>
+                    <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
+                </button>
             </div>
         </div>
         <div class="about-us">
