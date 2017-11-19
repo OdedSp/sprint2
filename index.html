@@ -71,6 +71,7 @@
             </div>
             <div class="step-two">
                 <div class="user-input" onclick="renderCanvas()">
+                    <div class="inputs-container"></div>
                     <input class="top-txt" oninput="renderCanvas()" />
                     <div class="align-text">
                         <button onclick="alignText('end')">right</button>
@@ -89,6 +90,7 @@
                     </select>
                     <button onclick="deleteText()">🗑</button>
                     <input class="bottom-txt" placeholder="(optional) bottom text" oninput="renderCanvas()" />
+                    <button class="add-text" onclick="addInput()"> add</button>
                 </div>
                 <canvas>
                 </canvas>
