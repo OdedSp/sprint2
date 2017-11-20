@@ -268,6 +268,7 @@ function toggleHex() {
     var elImgs = document.querySelectorAll('.meme-card')
     closeMenu();
     for (let i = 0; i < elHex.length; i++) {
+        if (elHex[i].classList.contains('about-us-img')) continue;
         elHex[i].classList.toggle('show')
         elHexTop[i].classList.toggle('show')
         elHexBottom[i].classList.toggle('show')

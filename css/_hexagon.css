@@ -5,6 +5,8 @@
     margin: 57.74px 0;
     background-size: auto 230.9401px;
     background-position: center;
+    box-shadow: 3px 3px 10px black;
+    
 }
   
 .hexTop.show,
@@ -19,6 +21,8 @@
     transform: scaleY(0.5774) rotate(-45deg);
     background: inherit;
     left: 29.29px;
+    box-shadow: 3px 3px 10px black;
+    
 }
   
 .hexTop.show:after,
