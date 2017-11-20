@@ -1,76 +1,18 @@
-.contact {
-    background-color: #323232;
-    height: 564px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-family: 'Lato'
-}
+/* 
 
-.contact h2 {
-    font-family: MavenPro;
-    font-size: 30px;
-    color: #e0e0e0;
-    margin-bottom: 8px;
-    font-weight: 400px;
-}
 
-.contact h4 {
-    font-family: MavenPro;
-    font-size: 18px;
-    color: #bebebe;
-    margin-bottom: 20px;
-    font-weight: 400px;
-}
 
-.contact input {
-    color: white;
-    background-color: #454545;
-    outline: 0px;
-    border: 0px;
-    height: 38px;
-    max-width: 580px;
-    width: 100%;
-    min-width: 300px;
-}
 
-.contact textarea {
-    background-color: #454545;
-    outline: 0px;
-    border: 0px;
-    height: 150px;
-    width: 50vh;
-}
 
-.contact input::placeholder {
-    color: #bebebe;
-    font-family: lato;
-    font-size: 12px;
-}
 
-.contact textarea {
-    color: #bebebe;
-    resize: none;
-    height: 150px;
-    font-family: lato;
-    font-size: 12px;
-}
 
-.contact-container {
-    width: var(--inner-container-width);
-    /* height: 434px; */
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
 
-.message-details {
-    display: flex;
-    justify-content: space-between;
-}
+
+
+
+
+
+
 
 .info {
     align-self: flex-start;
@@ -82,14 +24,7 @@
 }
 
 .message input {
-    margin-bottom: 16px;
-}
-
-.beside-message {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 170px;
+    margin-bottom: 8px;
 }
 
 .detail {
@@ -97,7 +32,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    /* font-size: 10px; */
+    font-size: 10px;
     height: 11px;
 }
 
@@ -109,4 +44,108 @@
     display: flex;
     flex-direction: column;
     height: 120px;
+} */
+
+.contact {
+    background-color: #323232;
+    height: 564px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: 'Lato';
+}
+
+.contact-container {
+    width: var(--inner-container-width);
+
+    display: flex;
+    flex-flow: column wrap;
+    margin-left: 5vh;
+}
+
+.contact-heading {
+    flex-wrap: wrap;
+}
+
+.contact h2 {
+    font-family: MavenPro;
+    font-size: 30px;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+.contact h4 {
+    font-family: MavenPro;
+    font-size: 18px;
+    color: #bebebe;
+    margin-bottom: 20px;
+    font-weight: 400px;
+    width: 100%;
+}
+
+.contact-body {
+    display: flex;
+}
+
+.message {
+    width: 50vw;
+}
+
+.contact input {
+    color: white;
+    background-color: #454545;
+    outline: 0px;
+    border: 0px;
+    height: 38px;
+    max-width: 580px;
+    width: 50vw;
+    margin-bottom: 10px;
+    font-family: lato;
+    font-size: 12px;
+}
+
+.contact input::placeholder {
+    color: #bebebe;
+    font-family: lato;
+    font-size: 12px;
+}
+
+.contact textarea {
+    color: white;
+    background-color: #454545;
+    outline: 0;
+    border: 0;
+    resize: none;
+    height: 150px;
+    max-width: 580px;
+    width: 50vw;
+    font-family: lato;
+    font-size: 12px;
+}
+
+.contact textarea::placeholder {
+    color: #bebebe;
+    font-family: lato;
+    font-size: 12px;
+}
+
+.beside-message {
+    width: 50vw;
+    margin-left: 2vw;
+    font-size: 12px;
+}
+
+.our-message{
+    margin: 0 0 140px 0;
+}
+
+@media (max-width: 600px) {
+    .contact-body {
+        flex-wrap: wrap;
+    }
+    .our-message {
+        margin: 0;
+    }
 }

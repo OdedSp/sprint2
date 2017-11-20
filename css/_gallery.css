@@ -8,8 +8,9 @@
     flex-flow: row wrap;
     justify-content: space-between;
     list-style: none;
-    left: 40px;
+    /* left: 40px; */
     width: 67%;
+    padding: 0;
 }
 
 .meme-card {
@@ -103,4 +104,11 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100px;
+}
+
+@media (max-width: 600px) {
+    .gallery img {
+        width: 30vw;
+        height: auto;
+    }
 }

@@ -47,12 +47,12 @@ function renderImages(ImgObjs) {
     var strHtml = '';
     ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
-        <div class="meme-card">
         <li>
+        <div class="meme-card">
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
         <p>${imgObj.name}</p><br>
-        </li>
-        </div>`
+        </div>
+        </li>`
         renderKeywords()        
     })
     elGallery.innerHTML = strHtml;
