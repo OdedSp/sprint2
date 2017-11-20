@@ -91,10 +91,10 @@ function renderKeywords() {
     }
 }
 function changeStep(step, imgId) {
-    var elPrevStep = document.querySelector('.show');
-    elPrevStep.classList.remove('show')
+    var elPrevStep = document.querySelector('.step-show');
+    elPrevStep.classList.remove('step-show')
     var elCurrStep = document.querySelector('.' + step + '')
-    elCurrStep.classList.add('show')
+    elCurrStep.classList.add('step-show')
     gCanvasInfo.imgId = imgId;
     if (imgId) renderCanvas();
     renderImages(gImgObjs)

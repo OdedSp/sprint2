@@ -27,14 +27,15 @@
             <ul>
                 <li onclick="toggleHex()">hex</li>
                 <li class="list-point">·</li>
-                <li onclick="smoothScrollto('contact')">get in touch</a></li>
+                <li onclick="smoothScrollto('contact')">get in touch</a>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container">
         <div class="empty-div" id="generator"></div>
         <div class="generator">
-            <div class="step-one show">
+            <div class="step-one step-show">
                 <div class="search-nav">
                     <div class="search">
                         <label for="search-checkbox" class="search-checkbox" onclick="openMenu('search-box')">Search</label>
@@ -82,35 +83,33 @@
                     <label onclick="changePlusIcon()" class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
                     <div class="user-input" onclick="renderCanvas()">
                         <div class="inputs-container"></div>
-                        <div class="align-text">
+                        <div class="tool-bar">
                             <button class="fa fa-align-left" onclick="alignText('start')"></button>
                             <button class="fa fa-align-center" onclick="alignText('center')"></button>
                             <button class="fa fa-align-right" onclick="alignText('end')"></button>
-                        </div>
-                        <button onclick="changeTextHeight('+',1)" class="fa fa-arrow-up"></button>
-                        <button onclick="changeTextHeight('-',1)" class="fa fa-arrow-down"></button>
-                        <div class="font-size">
+                            <button onclick="changeTextHeight('+',1)" class="fa fa-arrow-up"></button>
+                            <button onclick="changeTextHeight('-',1)" class="fa fa-arrow-down"></button>
                             <button onclick="changeFontSize('+')">+</button>
                             <button onclick="changeFontSize('-')"> - </button>
+                            <button class="fa fa-paint-brush">
+                                <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
+                            </button>
+                            <button onclick="toggleShadow()">shadow</button>
+                            <button>
+                                <span class="fa fa-font"></span>
+                                <select class="font-family" onchange="changeFont()">
+                                    <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
+                                    <option value="Arial">Ariel</option>
+                                    <option value="Lato">Lato</option>
+                                </select>
+                                </select>
+                                <button onclick="deleteText()" class="fa fa-trash-o"></button>
+                                <button class="add-text" onclick="addInput()"> add</button>
                         </div>
-                        <button class="fa fa-paint-brush">
-                            <input type="color" value="#0000ff" class="fill-color" onchange="changeTextColor()">
-                        </button>
-                        <button onclick="toggleShadow()">shadow</button>
-                        <button>
-                            <span class="fa fa-font"></span>
-                            <select class="font-family" onchange="changeFont()">
-                                <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Impact</option>
-                                <option value="Arial">Ariel</option>
-                                <option value="Lato">Lato</option>
-                            </select>
-                            </select>
-                            <button onclick="deleteText()" class="fa fa-trash-o"></button>
-                            <button class="add-text" onclick="addInput()"> add</button>
                     </div>
                 </div>
                 <button>
-                    <a href="#" id="download" onclick="downloadImg(this)">Download as image</a>
+                    <a class="fa fa-download fa-2x" href="#" id="download" onclick="downloadImg(this)"></a>
                 </button>
             </div>
         </div>

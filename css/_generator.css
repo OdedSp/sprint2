@@ -49,18 +49,24 @@ canvas {
     transform-origin: top;    
     transition: 0.5s;
     opacity: 0;
-    width: 100%;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
+    width: 90vw;
     background-color: #454545;
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
+    box-sizing: border-box;
 }
-.user-input div {
-    display: inline-block;
+.tool-bar {
+    display: flex;
+    /* align-items: center; */
+    flex-wrap: wrap;
+}
+.tool-bar * {
+    flex-grow: 1;
+    padding: 10px;
+    margin: 2px;
+    border: none;
+    color: white;
 }
 
 #edit-checkbox:checked ~ .user-input {
@@ -97,6 +103,7 @@ canvas {
     .user-input {
         transform: scaleY(1);
         opacity: 1;
+        max-width: 60vw;
     }
     .open-edit::before {
         display: none;
