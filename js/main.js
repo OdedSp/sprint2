@@ -51,7 +51,7 @@ function renderImages(ImgObjs) {
         <div class="hexBottom"></div>      
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
         </div>
-        <p>${imgObj.name}</p><br>        
+        <p onclick="changeStep('step-two',${imgObj.id})">${imgObj.name}</p><br>        
         </li>`
         renderKeywords()
     })
@@ -255,3 +255,11 @@ function openMenu(elOpClass) {
     }
 }
 
+function smoothScrollto(element) {
+    var ellocation = document.querySelector('#'+element);
+    var elCheckbox = document.querySelector('#nav-checkbox');
+    ellocation.scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+    elCheckbox.checked = false;
+}

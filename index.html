@@ -20,18 +20,19 @@
         </label>
         <div class="nav-container">
             <ul>
-                <li><a href="#top">portfolio</a></li>
+                <li onclick="smoothScrollto('generator')">generator</li>
                 <li class="list-point">·</li>
-                <li>about</li>
+                <li onclick="smoothScrollto('about')">about</li>
             </ul>
             <ul>
                 <li>blog</li>
                 <li class="list-point">·</li>
-                <li>get in touch</li>
+                <li onclick="smoothScrollto('contact')">get in touch</a></li>
             </ul>
         </div>
     </nav>
     <div class="container">
+        <div class="empty-div" id="generator"></div>
         <div class="generator">
             <div class="step-one show">
                 <div class="search-nav">
@@ -70,7 +71,7 @@
 
             </div>
             <div class="step-two">
-                <button onclick="changeStep('step-one')">Back to Image gallery</button>
+                <button class="back-button" onclick="changeStep('step-one')">Back to Image gallery</button>
                 <div class="meme">
                     <div class="canvas-div">
                         <canvas></canvas>
@@ -113,7 +114,7 @@
                 </button>
             </div>
         </div>
-        <div class="about-us">
+        <div class="about-us" id="about">
             <div class="about-us-item">
                 <div class="about-us-img">
                     <img src="img/sokoban.jpg" />
@@ -153,7 +154,7 @@
                 </div>
             </div>
         </div>
-        <div class="contact">
+        <div class="contact" id="contact">
             <div class="contact-container">
                 <div class="contact-heading">
                     <h2>Get In Touch</h2>

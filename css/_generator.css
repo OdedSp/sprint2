@@ -14,6 +14,11 @@ canvas {
     align-items: center;
     width: 100%;
 }
+
+.back-button {
+    margin-top: 75px;
+}
+
 .inputs-container {
     display: none;
 }

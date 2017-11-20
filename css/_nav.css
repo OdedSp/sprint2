@@ -2,6 +2,7 @@ nav {
     height: 63px;
     width: 100%;
     background-color: #323232;
+    position: fixed;
 }
 
 #nav-checkbox {
@@ -104,7 +105,7 @@ li a:hover {
 
 @media (min-width: 900px) {
     nav {
-        /* position: fixed; */
+        position: fixed;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -114,7 +115,7 @@ li a:hover {
         transform: scaleY(1);
         opacity: 1;
         background-color: #323232;
-        max-width: 37vw;
+        max-width: 702px;
         height: 63px;
         display: flex;
         flex-direction: row;
@@ -166,5 +167,11 @@ li a:hover {
     
     li a:hover {
         color: #2eb398;  
+    }
+}
+
+@media (max-width: 330px) {
+    .nav-container li {
+        font-size: 30px;
     }
 }

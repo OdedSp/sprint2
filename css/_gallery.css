@@ -33,6 +33,12 @@
 .meme-card p {
     flex-wrap: wrap;
 }
+
+.gallery p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .gallery p {
     text-align: center;
     margin-top: 15px;
@@ -40,6 +46,9 @@
 .gallery img {
     width:200px;
     height: 200px;    
+}
+.gallery img:hover {
+    cursor: pointer;
 }
 
 .step-one {
@@ -60,12 +69,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: baseline;
     margin-top:20px;
 }
 
 .popular-keywords h6 {
     display: inline-block;
     margin: 5px;
+    font-family: lato;
 }
 
 .popular-keywords h6:hover {
@@ -86,7 +97,7 @@
     align-self: center;
 }
 .search-nav {
-    margin: 0 10vw;        
+    margin: 75px 10vw 0 10vw;        
     width: 80%;
     box-sizing: border-box;
     height: 50px;
@@ -99,10 +110,6 @@
     font-family: lato;
     font-size: 14px;
 }
-
-/* .search-nav:hover {
-    cursor: pointer;
-} */
 
 .search-nav > div {
     width: 25%;
@@ -131,7 +138,7 @@
     width: 100%;
     position: absolute;
     left: 0;
-    top: 142px;
+    top: 155px;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -184,7 +191,7 @@
         width: 100px;
     }
     .search-nav {
-        font-size: 10px;
+        font-size: 13.3px;
     }
 }
 
