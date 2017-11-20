@@ -20,7 +20,7 @@
         </label>
         <div class="nav-container">
             <ul>
-                <li>portfolio</li>
+                <li><a href="#top">portfolio</a></li>
                 <li class="list-point">·</li>
                 <li>about</li>
             </ul>
@@ -36,14 +36,14 @@
             <div class="step-one show">
                 <div class="search-nav">
                     <div class="search">
-                        <label for="search-checkbox" class="search-checkbox" onclick="openMenu('search-box')">search</label>
+                        <label for="search-checkbox" class="search-checkbox" onclick="openMenu('search-box')">Search</label>
                         <div class="search-box">
                             <input class="search-input" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
                             <button onclick="filterBySearch()">search</button>
                         </div>
                     </div>
                     <div class="choose-keyword">
-                        <label for="keywords-checkbox" class="keywords-checkbox" onclick="openMenu('popular-keywords-container')">Choose from list</label>
+                        <label for="keywords-checkbox" class="keywords-checkbox" onclick="openMenu('popular-keywords-container')">Choose by keyword</label>
                         <div class="popular-keywords-container">
                             <div class="popular-keywords"></div>
                         </div>
@@ -51,13 +51,13 @@
                     <div>
                         <label for="url-checkbox" class="url-checkbox" onclick="openMenu('image-url')">Add url</label>
                         <div class="image-url">
-                            <input class="usersImgUrl" placeholder="enter your image url" />
-                            <input class="usersImgName" placeholder="enter your meme name" />
-                            <button onclick="addUserImg()">submit</button>
+                            <input class="usersImgUrl" placeholder="Enter image url" />
+                            <input class="usersImgName" placeholder="Enter meme name" />
+                            <button onclick="addUserImg()">Submit</button>
                         </div>
                     </div>
                     <div>
-                        <label for="upload-checkbox" class="upload-checkbox" onclick="openMenu('img-upload')">Upload file</label>
+                        <label for="upload-checkbox" class="upload-checkbox" onclick="openMenu('img-upload')">Upload image</label>
                         <div class="img-upload">
                             <input id="file" type="file" />
                         </div>

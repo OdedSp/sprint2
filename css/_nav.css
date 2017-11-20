@@ -38,6 +38,10 @@ nav {
     align-self: center;
 }
 
+.pointy-thingy:hover {
+    cursor: pointer;
+}
+
 .pointy-thingy img {
     position: absolute;  
     z-index: 4;
@@ -82,14 +86,29 @@ nav {
 nav ul li:hover {
     color: #2eb398;
     border-bottom: 1px solid #2eb398;
-    
+    cursor: pointer;   
 }
 
-@media (min-width: 740px) {
+li a {
+    transition: 0.3s;
+}
+
+li a:hover {
+    color: #2eb398;  
+}
+
+.list-point:hover {
+    color: white;
+    cursor: default;
+}
+
+@media (min-width: 900px) {
     nav {
+        /* position: fixed; */
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 10px;
     }
     .nav-container {
         transform: scaleY(1);
@@ -122,6 +141,7 @@ nav ul li:hover {
         transition: 0.3s;
         padding: 0px;
         border: 0px;
+        width: 100%
     }    
     nav ul li:hover {
         color: #2eb398;
@@ -135,5 +155,16 @@ nav ul li:hover {
     }
     .pointy-thingy img:first-child {
         z-index: 0
+    }
+    .pointy-thingy:hover {
+        cursor: default;
+    }
+
+    li a {
+        transition: 0.3s;
+    }
+    
+    li a:hover {
+        color: #2eb398;  
     }
 }

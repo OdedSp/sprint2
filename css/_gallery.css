@@ -8,20 +8,25 @@
     flex-flow: row wrap;
     justify-content: space-between;
     list-style: none;
-    /* left: 40px; */
     width: 67%;
     padding: 0;
+    font-family: lato;
 }
 
 .meme-card {
     display: flex;
-    flex-flow: column;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
     margin: 12px;
     color: black;
     text-decoration: none;
     margin: 5px;
+    width: 200px;
+}
+
+.meme-card p {
+    flex-wrap: wrap;
 }
 
 .gallery img {
@@ -55,6 +60,10 @@
     margin: 5px;
 }
 
+.popular-keywords h6:hover {
+    cursor: pointer;
+}
+
 .image-add {
     display: flex;
     flex-direction: column;
@@ -79,11 +88,23 @@
     text-align: center;
     align-items: center;
     color: white;
+    font-family: lato;
+    font-size: 14px;
 }
+
+/* .search-nav:hover {
+    cursor: pointer;
+} */
+
 .search-nav > div {
     width: 25%;
     padding: 10px;
 }
+
+.search-nav label:hover {
+    cursor: pointer;
+}
+
 .search-nav > div:nth-child(3) {
     border-right: 1px solid white;
     border-left: 1px solid white;
@@ -130,16 +151,41 @@
     transform: scaleY(1);    
     opacity: 1;
 }
-<<<<<<< HEAD
 
-@media (max-width: 600px) {
-    .gallery img {
-        width: 30vw;
-        height: auto;
-    }
-}
-=======
 .gallery-down {
     margin-top: 300px;
+    
 }
->>>>>>> b73582a8b7c23dd25bf60c7b2e9736ff4592640d
+
+@media (max-width: 650px) {
+    .gallery img {
+        width: 150px;
+        height: 150px;
+    }
+    .meme-card {
+        width: 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery img {
+        width: 100px;
+        height: 100px;
+    }
+    .meme-card {
+        width: 100px;
+    }
+    .search-nav {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    .gallery img {
+        width: 80px;
+        height: 80px;
+    }
+    .meme-card {
+        width: 80px;
+    }
+}
