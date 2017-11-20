@@ -34,29 +34,40 @@
     <div class="container">
         <div class="generator">
             <div class="step-one show">
-                <div class="search-box">
-                    <input class="search" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
-                    <button onclick="filterBySearch()">search</button>
-                    <button>
-                        <a class="choose-keyword" href="#popular-keywords">Choose from list</a>
-                    </button>
-                    <button onclick="displayKeyMap()">Or search by map</button>
-                    <div class="popular-keywords"></div>
-                </div>
-
-                <div class="image-add">
-                    <div>
-                        <input class="usersImgUrl" placeholder="enter your image url" />
-                        <input class="usersImgName" placeholder="enter your meme name" />
+                <div class="search-nav">
+                    <div class="search">
+                        <label for="search-checkbox" class="search-checkbox" onclick="openMenu('search-box')">search</label>
+                        <div class="search-box">
+                            <input class="search-input" placeholder="🔍 Enter keyword..." onkeypress="filterBySearch(null, event)" />
+                            <button onclick="filterBySearch()">search</button>
+                        </div>
                     </div>
-                    <button onclick="addUserImg()">submit</button>
+                    <div class="choose-keyword">
+                        <label for="keywords-checkbox" class="keywords-checkbox" onclick="openMenu('popular-keywords-container')">Choose from list</label>
+                        <div class="popular-keywords-container">
+                            <div class="popular-keywords"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="url-checkbox" class="url-checkbox" onclick="openMenu('image-url')">Add url</label>
+                        <div class="image-url">
+                            <input class="usersImgUrl" placeholder="enter your image url" />
+                            <input class="usersImgName" placeholder="enter your meme name" />
+                            <button onclick="addUserImg()">submit</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="upload-checkbox" class="upload-checkbox" onclick="openMenu('img-upload')">Upload file</label>
+                        <div class="img-upload">
+                            <input id="file" type="file" />
+                        </div>
+                    </div>
                 </div>
-                <input id="file" type="file" />
                 <div class="gallery-map">
                     <ul class="gallery">
                     </ul>
                 </div>
-                <div id="popular-keywords" class="popular-keywords"></div>
+
             </div>
             <div class="step-two">
                 <button onclick="changeStep('step-one')">Back to Image gallery</button>
@@ -70,7 +81,6 @@
                     <label class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
                     <div class="user-input" onclick="renderCanvas()">
                         <div class="inputs-container"></div>
-                        <input class="input-1" oninput="updateTxt(1)" />
                         <div class="align-text">
                             <button class="fa fa-align-left" onclick="alignText('start')"></button>
                             <button class="fa fa-align-center" onclick="alignText('center')"></button>

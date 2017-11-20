@@ -32,12 +32,15 @@
 .step-one {
     display: none;
     flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .gallery-map {
     display: flex;
     justify-content: space-around;
     width: 100%;
+    transition: all 0.5s;
 }
 
 .popular-keywords {
@@ -50,28 +53,6 @@
 .popular-keywords h6 {
     display: inline-block;
     margin: 5px;
-}
-
-.search {
-    width: 90%;
-    margin: 10px;
-}
-
-.search-box button {
-    background-color: #2eb398;
-    border: none;
-    color: white;
-    padding: 5px;
-    margin: 5px;
-}
-
-.search-box {
-    margin: 20px 0;    
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
 }
 
 .image-add {
@@ -87,24 +68,69 @@
 .imageAdd {
     align-self: center;
 }
+.search-nav {
+    margin: 0 10vw;        
+    width: 80%;
+    box-sizing: border-box;
+    height: 50px;
+    background-color: #2eb398;
+    display: flex;
+    border-radius: 50px;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+.search-nav > div {
+    width: 25%;
+    padding: 10px;
+}
+.search-nav > div:nth-child(3) {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+.search-nav > div:first-child {
+    border-right: 1px solid white;
+}
 
-.search-box {
+.search-nav > div > div {
+    transform: scaleY(0);
+    transform-origin: top;    
+    transition: 0.5s;
+    opacity: 0;
+    background-color: white;
+    color: black;    
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 142px;
+    height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100px;
+    justify-content: space-around;
+    align-items: center;
 }
-
-.imageAdd {
-    align-self: center;
-}
-
-.search-box {
+.popular-keywords{
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100px;
+    flex-direction: row;
+    width: 80%;
 }
+.search-box.open {
+    transform: scaleY(1);    
+    opacity: 1;
+}
+.popular-keywords-container.open {
+    transform: scaleY(1);    
+    opacity: 1;
+}
+.image-url.open {
+    transform: scaleY(1);    
+    opacity: 1;
+}
+.img-upload.open {
+    transform: scaleY(1);    
+    opacity: 1;
+}
+<<<<<<< HEAD
 
 @media (max-width: 600px) {
     .gallery img {
@@ -112,3 +138,8 @@
         height: auto;
     }
 }
+=======
+.gallery-down {
+    margin-top: 300px;
+}
+>>>>>>> b73582a8b7c23dd25bf60c7b2e9736ff4592640d
