@@ -3,7 +3,7 @@ nav {
     width: 100%;
     background-color: #323232;
     position: fixed;
-    z-index: 3;    
+    z-index: 10;    
 }
 
 #nav-checkbox {

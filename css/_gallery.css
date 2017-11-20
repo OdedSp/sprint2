@@ -30,6 +30,7 @@
     width: 200px;
     display: none;
 }
+
 .show {
     display: block;
 }
@@ -50,6 +51,7 @@
 .gallery img {
     width:200px;
     height: 200px; 
+    box-shadow: 3px 3px 10px black;
 }
 .gallery img:hover {
     cursor: pointer;
@@ -184,6 +186,9 @@
     .meme-card {
         width: 150px;
     }
+    .test-div{
+        width: 150px; 
+    }
 }
 
 @media (max-width: 500px) {
@@ -193,6 +198,9 @@
     }
     .meme-card {
         width: 100px;
+    }
+    .test-div{
+        width: 100px; 
     }
     .search-nav {
         font-size: 13.3px;
@@ -206,6 +214,9 @@
     }
     .meme-card {
         width: 80px;
+    }
+    .test-div{
+        width: 80px; 
     }
 }
 .gallery-down {

@@ -266,6 +266,7 @@ function toggleHex() {
     var elHexTop = document.querySelectorAll('.hexTop')
     var elHexBottom = document.querySelectorAll('.hexBottom')
     var elImgs = document.querySelectorAll('.meme-card')
+    closeMenu();
     for (let i = 0; i < elHex.length; i++) {
         elHex[i].classList.toggle('show')
         elHexTop[i].classList.toggle('show')
@@ -278,12 +279,18 @@ function changePlusIcon() {
     var elIcon = document.querySelector('.open-edit')
     elIcon.classList.toggle('fa-plus-square')
     elIcon.classList.toggle('fa-minus-square')
-    function smoothScrollto(element) {
-        var ellocation = document.querySelector('#' + element);
-        var elCheckbox = document.querySelector('#nav-checkbox');
-        ellocation.scrollIntoView({
-            behavior: 'smooth'
-        });
-        elCheckbox.checked = false;
-    }
+}
+
+function smoothScrollto(element) {
+    var ellocation = document.querySelector('#' + element);
+    ellocation.scrollIntoView({
+        behavior: 'smooth'
+    });
+    closeMenu();
+}
+
+function closeMenu() {
+    var elCheckbox = document.querySelector('#nav-checkbox');
+    elCheckbox.checked = false;
+    console.log('hi');
 }
