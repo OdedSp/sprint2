@@ -28,6 +28,10 @@
     text-decoration: none;
     margin: 5px;
     width: 200px;
+    display: none;
+}
+.show {
+    display: block;
 }
 
 .meme-card p {
@@ -39,9 +43,8 @@
 }
 .gallery img {
     width:200px;
-    height: 200px;    
+    height: 200px; 
 }
-
 .step-one {
     display: none;
     flex-direction: column;

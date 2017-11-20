@@ -24,7 +24,7 @@ function init() {
     renderImages(gImgObjs);
     renderCanvas()
     expandKeywords();
-    addInput()    
+    addInput()
 }
 
 //This function takes the name of the img object and iserts it to the keywords
@@ -46,12 +46,17 @@ function renderImages(ImgObjs) {
     ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
         <li>
-        <div class="meme-card hexagon" onclick="changeStep('step-two',${imgObj.id})" style="background-image:url(${imgObj.url})">
+        <div class="test-div">
+        <div class="hexagon" onclick="changeStep('step-two',${imgObj.id})" style="background-image:url(${imgObj.url})">
         <div class="hexTop"></div>
-        <div class="hexBottom"></div>      
-        <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
+        <div class="hexBottom"></div>
         </div>
-        <p>${imgObj.name}</p><br>        
+        <div class="meme-card show" onclick="changeStep('step-two',${imgObj.id})">
+        <div class="gallery-img">
+        <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id} square" onclick="changeStep('step-two',${imgObj.id})"/>        
+        </div>
+        </div>
+        <br> <p>${imgObj.name}</p><br>        
         </li>`
         renderKeywords()
     })
@@ -255,3 +260,21 @@ function openMenu(elOpClass) {
     }
 }
 
+function toggleHex() {
+    var elHex = document.querySelectorAll('.hexagon')
+    var elHexTop = document.querySelectorAll('.hexTop')
+    var elHexBottom = document.querySelectorAll('.hexBottom')
+    var elImgs = document.querySelectorAll('.meme-card')
+    for (let i = 0; i < elHex.length; i++) {
+        elHex[i].classList.toggle('show')
+        elHexTop[i].classList.toggle('show')
+        elHexBottom[i].classList.toggle('show')
+        elImgs[i].classList.toggle('show')
+    }
+}
+
+function changePlusIcon() {
+    var elIcon = document.querySelector('.open-edit')
+    elIcon.classList.toggle('fa-plus-square')
+    elIcon.classList.toggle('fa-minus-square')
+}

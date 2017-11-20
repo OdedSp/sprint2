@@ -4,7 +4,7 @@
     margin: 30px;
 }
 canvas {
-    max-width: 60vw;
+    max-width: 90vw;
     max-height: 1000px;
 }
 .step-two {
@@ -24,14 +24,12 @@ canvas {
     flex-direction: column;
     align-items: center;
 }
-
-
 .meme {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px;
-    max-width: 60vw;
+    max-width: 90vw;
 }
 #edit-checkbox {
     display: none;
@@ -39,7 +37,7 @@ canvas {
 
 .open-edit {
     color: #2eb398;
-
+    transition: all 1s;
 }
 .user-input {
     transform: scaleY(0);
@@ -54,6 +52,7 @@ canvas {
     background-color: #454545;
     padding: 15px;
     border-radius: 5px;
+    margin-top: 20px;
 }
 .user-input div {
     display: inline-block;
@@ -69,7 +68,7 @@ canvas {
     border-radius: 4px;
 }
 .inputs-container-mobile input{
-    width: 60vw;
+    width: 90vw;
     height: 50px;
     margin: 10px;
     margin: 5px;

@@ -20,12 +20,14 @@
         </label>
         <div class="nav-container">
             <ul>
-                <li><a href="#top">portfolio</a></li>
+                <li>
+                    <a href="#top">portfolio</a>
+                </li>
                 <li class="list-point">·</li>
                 <li>about</li>
             </ul>
             <ul>
-                <li>blog</li>
+                <li onclick="toggleHex()">hex</li>
                 <li class="list-point">·</li>
                 <li>get in touch</li>
             </ul>
@@ -59,7 +61,7 @@
                     <div>
                         <label for="upload-checkbox" class="upload-checkbox" onclick="openMenu('img-upload')">Upload image</label>
                         <div class="img-upload">
-                            <input class="img-file" type="file" onchange="uploadImg()"/>
+                            <input class="img-file" type="file" onchange="uploadImg()" />
                         </div>
                     </div>
                 </div>
@@ -78,7 +80,7 @@
                     <div class="inputs-container-mobile"></div>
                     <div class="inputs-container"></div>
                     <input type="checkbox" id="edit-checkbox">
-                    <label class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
+                    <label onclick="changePlusIcon()" class="fa fa-plus-square fa-2x open-edit" for="edit-checkbox"></label>
                     <div class="user-input" onclick="renderCanvas()">
                         <div class="inputs-container"></div>
                         <div class="align-text">
@@ -116,7 +118,11 @@
         <div class="about-us">
             <div class="about-us-item">
                 <div class="about-us-img">
-                    <img src="img/sokoban.jpg" />
+                    <div class="about-us-img hexagon show" style="background-image:url(img/sokoban.jpg)">
+                        <div class="hexTop show"></div>
+                        <div class="hexBottom show"></div>
+                    </div>
+                    <!-- <img src="img/sokoban.jpg" /> -->
                 </div>
                 <div class="about-us-words">
                     <h2>Shahar Zilberman</h2>
@@ -135,7 +141,11 @@
             </div>
             <div class="about-us-item">
                 <div class="about-us-img">
-                    <img src="img/devs/oded.png" />
+                    <div class="about-us-img hexagon show" style="background-image:url(img/devs/oded.png)">
+                        <div class="hexTop show"></div>
+                        <div class="hexBottom show"></div>
+                    </div>
+                    <!-- <img src="img/devs/oded.png" /> -->
                 </div>
                 <div class="about-us-words">
                     <h2>Oded Spitzer</h2>
@@ -183,11 +193,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    </div>
-    </div>
-
     </div>
     <div class="footer">
         <p>© Copyright 2013 by PSDchat</p>
