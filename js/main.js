@@ -56,7 +56,7 @@ function renderImages(ImgObjs) {
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id} square" onclick="changeStep('step-two',${imgObj.id})"/>        
         </div>
         </div>
-        <br> <p>${imgObj.name}</p><br>        
+        <p onclick="changeStep('step-two',${imgObj.id})">${imgObj.name}</p><br>        
         </li>`
         renderKeywords()
     })
@@ -97,6 +97,7 @@ function changeStep(step, imgId) {
     elCurrStep.classList.add('show')
     gCanvasInfo.imgId = imgId;
     if (imgId) renderCanvas();
+    renderImages(gImgObjs)
 }
 
 function renderCanvas() {
@@ -277,4 +278,12 @@ function changePlusIcon() {
     var elIcon = document.querySelector('.open-edit')
     elIcon.classList.toggle('fa-plus-square')
     elIcon.classList.toggle('fa-minus-square')
+    function smoothScrollto(element) {
+        var ellocation = document.querySelector('#' + element);
+        var elCheckbox = document.querySelector('#nav-checkbox');
+        ellocation.scrollIntoView({
+            behavior: 'smooth'
+        });
+        elCheckbox.checked = false;
+    }
 }
