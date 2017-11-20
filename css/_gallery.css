@@ -12,6 +12,11 @@
     padding: 0;
     font-family: lato;
 }
+.gallery li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
 .meme-card {
     display: flex;
@@ -28,10 +33,13 @@
 .meme-card p {
     flex-wrap: wrap;
 }
-
+.gallery p {
+    text-align: center;
+    margin-top: 15px;
+}
 .gallery img {
-    width: 200px;
-    height: 200px;    
+    width: 50px;
+    height: 50px;    
 }
 
 .step-one {
@@ -166,6 +174,7 @@
         width: 150px;
     }
 }
+<<<<<<< HEAD
 
 @media (max-width: 500px) {
     .gallery img {
@@ -189,3 +198,8 @@
         width: 80px;
     }
 }
+=======
+.gallery-down {
+    margin-top: 300px;
+}
+>>>>>>> ca739e8cf507d990868619ce079c719b6e9cab1b

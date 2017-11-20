@@ -15,11 +15,8 @@ var gImgObjs = [
 ]
 
 var gKeywords = {};
-
 var gCanvasInfo = { imgId: 1, texts: [] }
-
 var gCurrinput;
-
 var gCanvas = document.querySelector('canvas');
 
 function init() {
@@ -27,6 +24,7 @@ function init() {
     renderImages(gImgObjs);
     renderCanvas()
     expandKeywords();
+    addInput()    
 }
 
 //This function takes the name of the img object and iserts it to the keywords
@@ -48,12 +46,14 @@ function renderImages(ImgObjs) {
     ImgObjs.forEach(function stringToHtml(imgObj) {
         strHtml += `
         <li>
-        <div class="meme-card">
+        <div class="meme-card hexagon" onclick="changeStep('step-two',${imgObj.id})" style="background-image:url(${imgObj.url})">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>      
         <img src="${imgObj.url}" alt="${imgObj.name}" class="img-${imgObj.id}" onclick="changeStep('step-two',${imgObj.id})"/>
-        <p>${imgObj.name}</p><br>
         </div>
+        <p>${imgObj.name}</p><br>        
         </li>`
-        renderKeywords()        
+        renderKeywords()
     })
     elGallery.innerHTML = strHtml;
 }
@@ -92,7 +92,6 @@ function changeStep(step, imgId) {
     elCurrStep.classList.add('show')
     gCanvasInfo.imgId = imgId;
     if (imgId) renderCanvas();
-    addInput()
 }
 
 function renderCanvas() {
@@ -170,14 +169,21 @@ function addUserImg() {
     var elUrl = document.querySelector('.usersImgUrl').value
     var newImgObj = { id: gImgObjs.length + 1, name: elName, url: elUrl, keywords: elName }
     gImgObjs.push(newImgObj)
-    gCanvasInfo.texts[gCurrinput].imgId = gImgObjs.length;
+    gCanvasInfo.imgId = gImgObjs.length;
+    renderImages(gImgObjs)
+    changeStep('step-two', gImgObjs.length)
+}
+function uploadImg() {
+    var elUrl = document.querySelector('.img-file').value;
+    var newImgObj = { id: gImgObjs.length + 1, name: '', url: elUrl, keywords: '' }
+    gImgObjs.push(newImgObj)
+    gCanvasInfo.imgId = gImgObjs.length;
     renderImages(gImgObjs)
     changeStep('step-two', gImgObjs.length)
 }
 
 function deleteText() {
-    var elCurrText = document.querySelector('.top-txt');
-    elTopText.value = '';
+    gCanvasInfo.texts[gCurrinput].content = ''
     renderCanvas();
 }
 function changeTextHeight(operator, lineId) {
@@ -248,3 +254,4 @@ function openMenu(elOpClass) {
         currOp.classList.add('open')
     }
 }
+

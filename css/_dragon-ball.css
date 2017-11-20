@@ -1,6 +1,7 @@
 
 .inputs-container div {
     position: absolute;
+    left: 40vw;
     z-index: 9;
     background-color: #f1f1f100;
     text-align: center;

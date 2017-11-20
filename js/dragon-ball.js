@@ -27,7 +27,7 @@ function dragElement(id) {
         pos4 = e.clientY;
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-        getLoc() 
+        getLoc()
     }
 
     function closeDragElement() {
@@ -36,8 +36,8 @@ function dragElement(id) {
     }
 
     function getLoc() {
-        gCanvasInfo.texts[id-1].posX = elmnt.offsetLeft - gCanvas.offsetLeft + 20;
-        gCanvasInfo.texts[id-1].posY = elmnt.offsetTop - gCanvas.offsetTop + 40;
+        gCanvasInfo.texts[id - 1].posX = elmnt.offsetLeft - gCanvas.offsetLeft + 20;
+        gCanvasInfo.texts[id - 1].posY = elmnt.offsetTop - gCanvas.offsetTop + 40;
         renderCanvas()
     }
 
