@@ -130,7 +130,6 @@
     transform: scaleY(1);    
     opacity: 1;
 }
-<<<<<<< HEAD
 
 @media (max-width: 600px) {
     .gallery img {
@@ -138,8 +137,6 @@
         height: auto;
     }
 }
-=======
 .gallery-down {
     margin-top: 300px;
 }
->>>>>>> b73582a8b7c23dd25bf60c7b2e9736ff4592640d
