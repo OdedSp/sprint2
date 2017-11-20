@@ -170,7 +170,15 @@ function addUserImg() {
     var elUrl = document.querySelector('.usersImgUrl').value
     var newImgObj = { id: gImgObjs.length + 1, name: elName, url: elUrl, keywords: elName }
     gImgObjs.push(newImgObj)
-    gCanvasInfo.texts[gCurrinput].imgId = gImgObjs.length;
+    gCanvasInfo.imgId = gImgObjs.length;
+    renderImages(gImgObjs)
+    changeStep('step-two', gImgObjs.length)
+}
+function uploadImg() {
+    var elUrl = document.querySelector('.img-file').value;
+    var newImgObj = { id: gImgObjs.length + 1, name: '', url: elUrl, keywords: '' }
+    gImgObjs.push(newImgObj)
+    gCanvasInfo.imgId = gImgObjs.length;
     renderImages(gImgObjs)
     changeStep('step-two', gImgObjs.length)
 }
