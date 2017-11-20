@@ -112,7 +112,7 @@ function renderCanvas() {
     gCanvasInfo.texts.forEach(function (input, idx) {
         ctx.font = gCanvasInfo.texts[idx].fontSize + "px " + gCanvasInfo.texts[idx].font;
         ctx.strokeStyle = 'black';
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 5;
         ctx.fillStyle = gCanvasInfo.texts[idx].fillColor;
         ctx.textAlign = gCanvasInfo.texts[idx].align;
         ctx.shadowColor = 'black'
@@ -197,7 +197,11 @@ function changeTextHeight(operator, lineId) {
     else gCanvasInfo.texts[gCurrinput].posY += 10;
     renderCanvas();
 }
-
+function changeTextWidth(operator, lineId) {
+    if (operator === '+') gCanvasInfo.texts[gCurrinput].posX -= 10;
+    else gCanvasInfo.texts[gCurrinput].posX += 10;
+    renderCanvas();
+}
 function downloadImg(elLink) {
     elLink.href = gCanvas.toDataURL();
     elLink.download = 'myMeme.jpg';
